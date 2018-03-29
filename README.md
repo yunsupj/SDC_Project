@@ -1,2 +1,4 @@
-## SDC_Project
-** Computer Vision 
+## Self Driving Car Project
+* Computer Vision
+  - Lane Line Detection
+  - Traffic Signals Classification
