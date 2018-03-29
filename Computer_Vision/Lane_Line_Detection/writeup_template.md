@@ -42,7 +42,7 @@ This step is cleaning noised edges. The result of the Canny edge detection is ed
 
 ![alt text](https://github.com/yunsupj/SDC_Project/blob/master/Computer_Vision/Lane_Line_Detection/test_images/output_mask.jpg?raw=true "Result: Mask(Region of Interest)")
 
-![alt text](https://github.com/yunsupj/SDC_Project/blob/master/Computer_Vision/Lane_Line_Detection/test_images/output_mask_img.jpg?raw=true "Result: Mask(Region of Interest) + Canny Edge Detection")
+![alt text](https://github.com/yunsupj/SDC_Project/blob/master/Computer_Vision/Lane_Line_Detection/test_images/output_mask_img.jpg?raw=true "Result: Mask(Region of Interest)  Canny Edge Detection")
 
 **Step 4:** Masked Canny Edge Detection -> Detect Lane Line
 This step is detecting lane line with using [Hough Line Transform](https://docs.opencv.org/2.4/doc/tutorials/imgproc/imgtrans/hough_lines/hough_lines.html). The Hough line transformation is making lines into hough space based on two points from the original image(in this case, Image of Masked Canny Edge Detection). openCV package provides this process as [cv2.HoughLinesP()](https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_imgproc/py_houghlines/py_houghlines.html). The single output of HoughLinesP() is x and y values of two points, and making lines with these values. 

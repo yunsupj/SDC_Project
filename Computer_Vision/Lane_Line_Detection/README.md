@@ -14,7 +14,7 @@ To complete the project, two files will be submitted: a file containing project 
 
 To meet specifications in the project, take a look at the requirements in the [project rubric](https://review.udacity.com/#!/rubrics/322/view)
 
-![alt text](https://github.com/yunsupj/SDC_Project/blob/master/Computer_Vision/Lane_Line_Detection/test_images/output_edges.jpg?raw=true "Result: Canny Edge Detection")
+![alt text](https://github.com/yunsupj/SDC_Project/blob/master/Computer_Vision/Lane_Line_Detection/test_images/output_edges.jpg?raw=true width="480" "Result: Canny Edge Detection")
 
 
 Creating a Great Writeup
