@@ -26,6 +26,8 @@ This precesses using openCV package to convert grayscale and using Gaussian filt
 ##### Result: Grayscale
 <img src="https://github.com/yunsupj/SDC_Project/blob/master/Computer_Vision/Lane_Line_Detection/test_images/output_gray.jpg" width="480" alt="Combined Image" /> 
 
+
+
 **Step 2:** Gaussian Blur -> Canny Edge Detection
 
 This step is drawing edges on the image with [Canny Edge Detection](http://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_imgproc/py_canny/py_canny.html). 
@@ -34,24 +36,31 @@ It is possible to use with RGB image matrix, but it prefer to use with grayscale
 ##### Result: Canny Edge Detection
 <img src="https://github.com/yunsupj/SDC_Project/blob/master/Computer_Vision/Lane_Line_Detection/test_images/output_edges.jpg" width="480" alt="Combined Image" /> 
 
-**Step 3:** Canny Edge Detection + Mask(Region of Interest) Image -> Masked Canny Edge Detection
 
-This step is cleaning noised edges. The result of the Canny edge detection is edges of lane-line and other edges which are not needed. The first, set the four points, and draw four straight line which passes through points in order to make parallelogram region(you can make different shapes of the region with different number of points). It is called Region of Interest(Mask). The second, making an image of black and white; White = inside mask(Region of Interest), Black = outside mask(Region of Interest). The final, overlapping of two images; Canny Edge Detection + Mask(Region of Interest) Image -> Masked Canny Edge Detection.
+
+**Step 3:** Canny Edge Detection + Mask (Region of Interest) Image -> Masked Canny Edge Detection
+
+This step is cleaning noised edges. The result of the Canny edge detection is edges of lane-line and other edges which are not needed. - The first, set the four points and draw four straight line which passes through points in order to make parallelogram region (you can make different shapes of the region with different number of points). It is called Region of Interest (Mask). 
+- The second, making an image of black and white; White = inside mask (Region of Interest), Black = outside mask (Region of Interest). - The final, overlapping of two images; Canny Edge Detection + Mask (Region of Interest) Image -> Masked Canny Edge Detection.
 * openCV package used for making line, [cv2.fillpoly()](https://docs.opencv.org/2.4/modules/core/doc/drawing_functions.html), and overlapping images, [cv2.bitwise_and()](https://docs.opencv.org/2.4/modules/core/doc/operations_on_arrays.html). 
 
-##### Result: Mask       ##### Result: Mask + Canny Edge Detection
+##### Result: Mask                                                    Result: Mask + Canny Edge Detection
 <img src="https://github.com/yunsupj/SDC_Project/blob/master/Computer_Vision/Lane_Line_Detection/test_images/output_mask.jpg" width="360" alt="Combined Image" />     <img src="https://github.com/yunsupj/SDC_Project/blob/master/Computer_Vision/Lane_Line_Detection/test_images/output_mask_img.jpg" width="360" alt="Combined Image" /> 
+
+
 
 **Step 4:** Masked Canny Edge Detection -> Detect Lane Line
 
-This step is detecting lane line with using [Hough Line Transform](https://docs.opencv.org/2.4/doc/tutorials/imgproc/imgtrans/hough_lines/hough_lines.html). The Hough line transformation is making lines into hough space based on two points from the original image(in this case, Image of Masked Canny Edge Detection). openCV package provides this process as [cv2.HoughLinesP()](https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_imgproc/py_houghlines/py_houghlines.html). The single output of HoughLinesP() is x and y values of two points, and making lines with these values. 
+This step is detecting lane line with using [Hough Line Transform](https://docs.opencv.org/2.4/doc/tutorials/imgproc/imgtrans/hough_lines/hough_lines.html). The Hough line transformation is making lines into hough space based on two points from the original image (in this case, Image of Masked Canny Edge Detection). openCV package provides this process as [cv2.HoughLinesP()](https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_imgproc/py_houghlines/py_houghlines.html). The single output of HoughLinesP() is x and y values of two points, and making lines with these values. 
 
 ##### Result: Detect Lane Line
 <img src="https://github.com/yunsupj/SDC_Project/blob/master/Computer_Vision/Lane_Line_Detection/test_images/output_lines.jpg" width="480" alt="Combined Image" /> 
 
+
+
 **Step 5:** Complete Detect Lane Line: Make one line from segmented lines
 
-This step is making a single Left and Right line from segmented lines. The original draw_line() function draws many segmented lines on left and right side, it is colored red with RGB values, (255, 0, 0). In order to make a single Left and Right line, it needs to calculate average of slope and center of coordinate,(x, y) value, for Left and Right. The result of new_draw_line() function is new x1, y1, x2, y2 values which can a single Left and Right line with [cv2.line()](https://docs.opencv.org/trunk/dc/da5/tutorial_py_drawing_functions.html).
+This step is making a single Left and Right line from segmented lines. The original draw_line() function draws many segmented lines on left and right side. In order to make a single Left and Right line, it needs to calculate average of slope and center of coordinate,(x, y) value, for Left and Right. The result of new_draw_line() function is new (x1, y1, x2, y2) values which can a single Left and Right line with [cv2.line()](https://docs.opencv.org/trunk/dc/da5/tutorial_py_drawing_functions.html).
 
 ##### Result: Detect Lane Line - Single Line
 <img src="https://github.com/yunsupj/SDC_Project/blob/master/Computer_Vision/Lane_Line_Detection/test_images/output_solidYellowLeft.jpg" width="480" alt="Combined Image" /> 
