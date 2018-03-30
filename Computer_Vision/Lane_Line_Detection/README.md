@@ -46,7 +46,7 @@ The second, making an image of black and white; White = inside mask (Region of I
 
 * openCV package used for making line, [cv2.fillpoly()](https://docs.opencv.org/2.4/modules/core/doc/drawing_functions.html), and overlapping images, [cv2.bitwise_and()](https://docs.opencv.org/2.4/modules/core/doc/operations_on_arrays.html). 
 
-##### Result: Mask     <tab /> <tab />                              Result: Mask + Canny Edge Detection
+##### Result: Mask    &nbsp;&nbsp;&nbsp;                             Result: Mask + Canny Edge Detection
 <img src="https://github.com/yunsupj/SDC_Project/blob/master/Computer_Vision/Lane_Line_Detection/test_images/output_mask.jpg" width="360" alt="Combined Image" />     <img src="https://github.com/yunsupj/SDC_Project/blob/master/Computer_Vision/Lane_Line_Detection/test_images/output_mask_img.jpg" width="360" alt="Combined Image" /> 
 <br />
 <br />
@@ -75,8 +75,7 @@ This step is making a single Left and Right line from segmented lines. <br />The
 <br />
 
 #### Result: solidYellowLeft
-[![Video White]
-(https://github.com/yunsupj/SDC_Project/blob/master/Computer_Vision/Lane_Line_Detection/test_videos_output/solidYellowLeft.mp4)]
+<a href="https://imgflip.com/gif/27ewmm"><img src="https://i.imgflip.com/27ewmm.gif" title="made at imgflip.com"/></a>
 <br />
 <br />
 
