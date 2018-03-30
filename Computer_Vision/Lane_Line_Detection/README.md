@@ -26,7 +26,7 @@ This precesses using openCV package to convert grayscale and using Gaussian filt
 ##### Result: Grayscale
 <img src="https://github.com/yunsupj/SDC_Project/blob/master/Computer_Vision/Lane_Line_Detection/test_images/output_gray.jpg" width="480" alt="Combined Image" /> 
 <br />
-
+<br />
 
 **Step 2:** Gaussian Blur -> Canny Edge Detection
 
@@ -35,21 +35,21 @@ It is possible to use with RGB image matrix, but it prefer to use with grayscale
 
 ##### Result: Canny Edge Detection
 <img src="https://github.com/yunsupj/SDC_Project/blob/master/Computer_Vision/Lane_Line_Detection/test_images/output_edges.jpg" width="480" alt="Combined Image" /> 
-
-
+<br />
+<br />
 
 **Step 3:** Canny Edge Detection + Mask (Region of Interest) Image -> Masked Canny Edge Detection
 
 This step is cleaning noised edges. The result of the Canny edge detection is edges of lane-line and other edges which are not needed. 
-> The first, set the four points and draw four straight line which passes through points in order to make parallelogram region (you can make different shapes of the region with different number of points). It is called Region of Interest (Mask). 
-> The second, making an image of black and white; White = inside mask (Region of Interest), Black = outside mask (Region of Interest). > The final, overlapping of two images; Canny Edge Detection + Mask (Region of Interest) Image -> Masked Canny Edge Detection.
+> The first, set the four points and draw four straight line which passes through points in order to make parallelogram region (you can make different shapes of the region with different number of points). It is called Region of Interest (Mask). <br />
+The second, making an image of black and white; White = inside mask (Region of Interest), Black = outside mask (Region of Interest). <br /> The final, overlapping of two images; Canny Edge Detection + Mask (Region of Interest) Image -> Masked Canny Edge Detection.
 
 * openCV package used for making line, [cv2.fillpoly()](https://docs.opencv.org/2.4/modules/core/doc/drawing_functions.html), and overlapping images, [cv2.bitwise_and()](https://docs.opencv.org/2.4/modules/core/doc/operations_on_arrays.html). 
 
 ##### Result: Mask                                                    Result: Mask + Canny Edge Detection
 <img src="https://github.com/yunsupj/SDC_Project/blob/master/Computer_Vision/Lane_Line_Detection/test_images/output_mask.jpg" width="360" alt="Combined Image" />     <img src="https://github.com/yunsupj/SDC_Project/blob/master/Computer_Vision/Lane_Line_Detection/test_images/output_mask_img.jpg" width="360" alt="Combined Image" /> 
-
-
+<br />
+<br />
 
 **Step 4:** Masked Canny Edge Detection -> Detect Lane Line
 
@@ -57,8 +57,8 @@ This step is detecting lane line with using [Hough Line Transform](https://docs.
 
 ##### Result: Detect Lane Line
 <img src="https://github.com/yunsupj/SDC_Project/blob/master/Computer_Vision/Lane_Line_Detection/test_images/output_lines.jpg" width="480" alt="Combined Image" /> 
-
-
+<br />
+<br />
 
 **Step 5:** Complete Detect Lane Line: Make one line from segmented lines
 
@@ -66,17 +66,21 @@ This step is making a single Left and Right line from segmented lines. <br />The
 
 ##### Result: Detect Lane Line - Single Line
 <img src="https://github.com/yunsupj/SDC_Project/blob/master/Computer_Vision/Lane_Line_Detection/test_images/output_solidYellowLeft.jpg" width="480" alt="Combined Image" /> 
-
+<br />
+<br />
 
 #### Result: solidWhiteRight
 [![Video White](https://github.com/yunsupj/SDC_Project/blob/master/Computer_Vision/Lane_Line_Detection/test_videos_output/solidWhiteRight.mp4)]
+<br />
+<br />
 
 #### Result: solidYellowLeft
 [![Video White](https://github.com/yunsupj/SDC_Project/blob/master/Computer_Vision/Lane_Line_Detection/test_videos_output/solidYellowLeft.mp4)]
- 
+<br />
+<br />
 
 ### 2. Identify potential shortcomings with your current pipeline
-For challenge video, there is some error because NaN values exist after filter based on arctangent values.
+For challenge video, there is some error because NaN values exist after filter based on arctangent values.<br />
 Also, this project designed only for detecting straight lane line, so this is not really work in real roads.
 
 ### 3. Suggest possible improvements to your pipeline
