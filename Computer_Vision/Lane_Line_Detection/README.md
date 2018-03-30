@@ -16,34 +16,32 @@ The goals of this project to detect lane lines in images using Python and [OpenC
 
 ### 1. The steps of this project are the following:
 
-#### My pipeline consisted of 5 steps. 
+### My pipeline consisted of 5 steps. 
 
 **Step 1:** Image -> Grayscale -> Gaussian Blur
 
 This is kinds of pre-process for edges detection. The matrix of RGB color image sometimes too complicate to factor out edges, so this process makes easier(simple) to catch significant gradients from the image matrix. This precesses using openCV package to convert grayscale and using Gaussian filter([Gaussian Blur](http://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_imgproc/py_filtering/py_filtering.html)).
 
-<img src="https://github.com/yunsupj/SDC_Project/blob/master/Computer_Vision/Lane_Line_Detection/test_images/output_gray.jpg" width="640" alt="Combined Image" /> 
+<img src="https://github.com/yunsupj/SDC_Project/blob/master/Computer_Vision/Lane_Line_Detection/test_images/output_gray.jpg" width="480" alt="Combined Image" /> 
 
 **Step 2:** Gaussian Blur -> Canny Edge Detection
 
 This step is drawing edges on the image with [Canny Edge Detection](http://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_imgproc/py_canny/py_canny.html). It is possible to use with RGB image matrix, but it prefer to use with grayscaled image matrix because Canny Edge Detection use gradient values(RGB has a lot of noise).
 
-<img src=“https://github.com/yunsupj/SDC_Project/blob/master/Computer_Vision/Lane_Line_Detection/test_images/output_edges.jpg” width=“480” alt="Combined Image" />
+<img src="https://github.com/yunsupj/SDC_Project/blob/master/Computer_Vision/Lane_Line_Detection/test_images/output_edges.jpg" width="480" alt="Combined Image" /> 
 
 **Step 3:** Canny Edge Detection + Mask(Region of Interest) Image -> Masked Canny Edge Detection
 
 This step is cleaning noised edges. The result of the Canny edge detection is edges of lane-line and other edges which are not needed. The first, set the four points, and draw four straight line which passes through points in order to make parallelogram region(you can make different shapes of the region with different number of points). It is called Region of Interest(Mask). The second, making an image of black and white; White = inside mask(Region of Interest), Black = outside mask(Region of Interest). The final, overlapping of two images; Canny Edge Detection + Mask(Region of Interest) Image -> Masked Canny Edge Detection.
 * openCV package used for making line, [cv2.fillpoly()](https://docs.opencv.org/2.4/modules/core/doc/drawing_functions.html), and overlapping images, [cv2.bitwise_and()](https://docs.opencv.org/2.4/modules/core/doc/operations_on_arrays.html). 
 
-<img src=“https://github.com/yunsupj/SDC_Project/blob/master/Computer_Vision/Lane_Line_Detection/test_images/output_mask.jpg” width=“360” alt="Combined Image" />
-
-<img src=“https://github.com/yunsupj/SDC_Project/blob/master/Computer_Vision/Lane_Line_Detection/test_images/output_mask_img.jpg” width=“360” alt="Combined Image" />
+<img src="https://github.com/yunsupj/SDC_Project/blob/master/Computer_Vision/Lane_Line_Detection/test_images/output_mask.jpg" width="360" alt="Combined Image" />   <img src="https://github.com/yunsupj/SDC_Project/blob/master/Computer_Vision/Lane_Line_Detection/test_images/output_mask_img.jpg" width="360" alt="Combined Image" /> 
 
 **Step 4:** Masked Canny Edge Detection -> Detect Lane Line
 
 This step is detecting lane line with using [Hough Line Transform](https://docs.opencv.org/2.4/doc/tutorials/imgproc/imgtrans/hough_lines/hough_lines.html). The Hough line transformation is making lines into hough space based on two points from the original image(in this case, Image of Masked Canny Edge Detection). openCV package provides this process as [cv2.HoughLinesP()](https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_imgproc/py_houghlines/py_houghlines.html). The single output of HoughLinesP() is x and y values of two points, and making lines with these values. 
 
-<img src=“https://github.com/yunsupj/SDC_Project/blob/master/Computer_Vision/Lane_Line_Detection/test_images/output_lines.jpg” width=“360” alt="Combined Image" />
+<img src="https://github.com/yunsupj/SDC_Project/blob/master/Computer_Vision/Lane_Line_Detection/test_images/output_lines.jpg" width="360" alt="Combined Image" /> 
 
 **Step 5:** Complete Detect Lane Line: Make one line from segmented lines
 
