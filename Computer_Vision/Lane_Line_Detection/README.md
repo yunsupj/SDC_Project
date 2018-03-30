@@ -25,7 +25,7 @@ This precesses using openCV package to convert grayscale and using Gaussian filt
 
 ##### Result: Grayscale
 <img src="https://github.com/yunsupj/SDC_Project/blob/master/Computer_Vision/Lane_Line_Detection/test_images/output_gray.jpg" width="480" alt="Combined Image" /> 
-
+<br />
 
 
 **Step 2:** Gaussian Blur -> Canny Edge Detection
