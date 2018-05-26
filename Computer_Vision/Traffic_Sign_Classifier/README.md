@@ -94,8 +94,9 @@ Final model consisted of the following layers:<br>
 |FC1       | Fully Connected	| Output 1024,  Dropout 0.5   				 |
 |FC2       | Softmax			| Output 43, Classes/Labels 		   		 |
 <br>
-- [Dropout](https://en.wikipedia.org/wiki/Dropout_(neural_networks)) is a regularization technique for reducing overfitting in neural networks by preventing complex co-adaptations on training data.<br>
-- Make Flat np.Array with [tf.contrib.layers.flatten()](https://www.tensorflow.org/api_docs/python/tf/contrib/layers/flatten):
+**[Dropout](http://www.jmlr.org/papers/volume15/srivastava14a/srivastava14a.pdf?utm_content=buffer79b43&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer) is a regularization technique for reducing overfitting in neural networks by preventing complex co-adaptations on training data.
+<br>
+***Make Flat np.Array with [tf.contrib.layers.flatten()](https://www.tensorflow.org/api_docs/python/tf/contrib/layers/flatten):
 4x4 Stride Max Pool from Conv1 (512) +  2x2 Stride Max Pool from Conv2 (1024) + 2x2 Stride Max Pool from Conv3 (2048) = 3584 as Input Fully Connected Layer.
 
 ---
