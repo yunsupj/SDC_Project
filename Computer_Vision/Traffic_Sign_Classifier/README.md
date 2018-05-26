@@ -38,12 +38,10 @@ Download the dataset, German Traffic Sign, from [Here](https://d17h27t6h515a5.cl
 
 * Visualization of the dataset:<br>
     - **Sampling Images from Training Dataset:**
-        <img src="./readme_images/German_traffic_sign.png" width="540" alt="Combined Image" /> 
-<br />
+        <img src="./readme_images/German_traffic_sign.png" width="800" height="600" alt="Combined Image" /><br />
 
     - **Statistic for Training Dataset:**
-<img src="./readme_images/Train_data.png" width="540" alt="Combined Image" /> 
-<br />
+<img src="./readme_images/Train_data.png" width="800" height="600" alt="Combined Image" /> <br />
 
 ---
 ##### Step 2: Data Preprocessing
