@@ -1,0 +1,2 @@
+model_checkpoint_path: "Traffic_Net"
+all_model_checkpoint_paths: "Traffic_Net"
