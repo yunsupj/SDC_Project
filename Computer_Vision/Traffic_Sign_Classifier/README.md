@@ -13,8 +13,6 @@ The aim of this project is developing image classification model (CNN) with vari
 * Training Data: [German Traffic Sign](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset)
 * Hardware: AWS g2.2xlarge (GPU)
 
-<img src="./readme_images/output_solidYellowLeft.jpg" width="480" alt="Combined Image" />
-
 
 ---
 ### **The steps of this project are the following:**
@@ -38,12 +36,13 @@ Download the dataset, German Traffic Sign, from [Here](https://d17h27t6h515a5.cl
 
 
 
-* Visualization of the dataset:
+* Visualization of the dataset:<br>
     - **Sampling Images from Training Dataset:**
-        <img src="./readme_images/German_traffic_sign.png" width="480" alt="Combined Image" /> 
+        <img src="./readme_images/German_traffic_sign.png" width="540" alt="Combined Image" /> 
 <br />
+
     - **Statistic for Training Dataset:**
-<img src="./readme_images/Train_data.png" width="480" alt="Combined Image" /> 
+<img src="./readme_images/Train_data.png" width="540" alt="Combined Image" /> 
 <br />
 
 ---
