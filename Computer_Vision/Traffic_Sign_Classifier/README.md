@@ -17,7 +17,7 @@ The aim of this project is developing image classification model (CNN) with vari
 ---
 ### **The steps of this project are the following:**
 
-##### Step 1: Data Load & Summary
+#### Step 1: Data Load & Summary
 
 Download the dataset, German Traffic Sign, from [Here](https://d17h27t6h515a5.cloudfront.net/topher/2017/February/5898cd6f_traffic-signs-data/traffic-signs-data.zip). This dataset pickled and resized already by the size of 32x32.
 
@@ -44,7 +44,7 @@ Download the dataset, German Traffic Sign, from [Here](https://d17h27t6h515a5.cl
 		<img src="./readme_images/Train_data.png" width="800" height="400" alt="Combined Image" /> <br />
 
 ---
-##### Step 2: Data Preprocessing
+#### Step 2: Data Preprocessing
 
 Training model with unbalanced dataset makes more bias in particular classes/labels after creating/training CNN model. It is necessary to make balanced dataset before train the CNN model to get the best accuracy. Also, balanced and enough training data set automatically tune parameter for CNN model. In order to make balanced dataset, it requires some techniques such as image Projection and Rotation.
 
@@ -57,7 +57,7 @@ The contrast and brightness of images in each class/label are different in this 
     - **Rotation:** Rotating images in random angles, between -15.0 and 15.0 degrees.
     	<img src="./readme_images/Rotated.png" width="480" alt="Combined Image" /><br />
     
-    - **Affine-Transformation:** Transformating images in random (X1, Y1, X2, Y2) coordinate, 4 corner points, between -5.0 and 5.0
+    - **Affine-Transformation:** Transformating images in random (X1, Y1, X2, Y2) coordinate (4 corner points) between -5.0 and 5.0
     	<img src="./readme_images/Translated_01.png" width="480" alt="Combined Image" /><br />
 
 2. **Grayscaling:** Converting an BGR image into Grayscale image with [cv2.cvtColor()](https://docs.opencv.org/2.4/modules/imgproc/doc/miscellaneous_transformations.html). Then apply [Histogram Equalization](https://en.wikipedia.org/wiki/Histogram_equalization) into images with [cv2.equalizeHist()](https://docs.opencv.org/3.1.0/d5/daf/tutorial_py_histogram_equalization.html)
@@ -66,8 +66,8 @@ The contrast and brightness of images in each class/label are different in this 
 4. **Shuffling:** Ramdomly shuffle images and classes/labels in the same order
 
 **Statistic for Training Dataset after Pre-Process:**
-<img src="./readme_images/Train_data_gen.png" width="480" alt="Combined Image" />
-<br />
+	<img src="./readme_images/Train_data_gen.png" width="800" height="400" alt="Combined Image" /><br />
+
 The training dataset is balanced after preprocess, each class/label have around 8000 images. This preprocess is include generate fake data with [translation, rotation, affineTrans], Normalization, BGR to Grayscale, Histogram Equalization, and Shuffling.
 ---
 
