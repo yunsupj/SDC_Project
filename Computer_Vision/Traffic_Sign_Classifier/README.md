@@ -71,13 +71,12 @@ The contrast and brightness of images in each class/label are different in this 
 > The training dataset is balanced after preprocess, each class/label have around 8000 images. This preprocess is include generate fake data with [translation, rotation, affineTrans], Normalization, BGR to Grayscale, Histogram Equalization, and Shuffling.
 ---
 
-##### Step 3: Design a Model Architecture, named as Traffic_Net
+#### Step 3: Design a Model Architecture, named as Traffic_Net
 
-The Germen Traffic Sign Recognition Model designed and implemented a CNN deep learning model, trained by almost 350,000 images of Germen Traffic Sign.
-<img src="./readme_images/Model_architecture.png" width="480" alt="Combined Image" />
-<br />
+The Germen Traffic Sign Recognition Model designed and implemented a CNN deep learning model, trained by almost 350,000 images of Germen Traffic Sign.<br>
+<img src="./readme_images/Model_architecture.png" width="800" height="400" alt="Combined Image" /><br />
 
-Final model consisted of the following layers:
+Final model consisted of the following layers:<br>
 
 |Layer     |Functions      		|     Description	        			     |
 |:--------:|:------------------:|:------------------------------------------:| 
@@ -93,38 +92,34 @@ Final model consisted of the following layers:
 |Conv3-Pool| Max pooling	    | 2x2 Stride,  Outputs 4x4x128, Dropout 0.7  |
 |Pre-FC    | Flatten        	| ***2048+1024+512 = 3584, Output 3584        |
 |FC1       | Fully Connected	| Output 1024,  Dropout 0.5   				 |
-|FC2       | Softmax			| Output 43, Classes/Labels 		   		 |
-** [Dropout](https://en.wikipedia.org/wiki/Dropout_(neural_networks)) is a regularization technique for reducing overfitting in neural networks by preventing complex co-adaptations on training data.
+|FC2       | Softmax			| Output 43, Classes/Labels 		   		 |<br>
+** [Dropout](https://en.wikipedia.org/wiki/Dropout_(neural_networks)) is a regularization technique for reducing overfitting in neural networks by preventing complex co-adaptations on training data.<br>
 *** Make Flat np.Array with [tf.contrib.layers.flatten()](https://www.tensorflow.org/api_docs/python/tf/contrib/layers/flatten):
 4x4 Stride Max Pool from Conv1 (512) +  2x2 Stride Max Pool from Conv2 (1024) + 2x2 Stride Max Pool from Conv3 (2048) = 3584 as Input Fully Connected Layer.
----
-##### Step 4: Training and Evaluation Model, named as Traffic_Net
 
-<img src="./readme_images/Train_model_param.png" width="480" alt="Combined Image" />
-<br />
-<img src="./readme_images/Accuracy.png" width="480" alt="Combined Image" />
-<br />
-<img src="./readme_images/Loss.png" width="480" alt="Combined Image" />
-<br />
+---
+
+#### Step 4: Training and Evaluation Model, named as Traffic_Net
+
+<img src="./readme_images/Train_model_param.png" width="500" alt="Combined Image" /><br />
+<img src="./readme_images/Accuracy.png" width="800" height="400" alt="Combined Image" /><br />
+<img src="./readme_images/Loss.png" width="800" height="400" alt="Combined Image" /><br />
+
 **Traffic_Net Model Evaluation**
-<img src="./readme_images/model_evaluation.png" width="480" alt="Combined Image" />
-<br />
-<img src="./readme_images/Epoch_acc.png" width="480" alt="Combined Image" />
-<br />
+<img src="./readme_images/model_evaluation.png" width="360" alt="Combined Image" /><br />
+<img src="./readme_images/Epoch_acc.png" width="360" alt="Combined Image" /><br />
 From the Accuracy graph, the Traffic_Net model reaches enough accuracy after 20 epochs.
 
 ---
 
-##### Step 5: Test Model, named as Traffic_Net, with New Image from Google
+#### Step 5: Test Model, named as Traffic_Net, with New Image from Google
 
-This is the step for predicting images from new input images, German traffic signs from Google search to test model performance. There is [Softmax function](https://developers.google.com/machine-learning/crash-course/multi-class-neural-networks/softmax), [tf.nn.softmax()](https://www.tensorflow.org/api_docs/python/tf/nn/softmax),  applied at the last of CNN Deep Learning model. 
-**Number of new Testing Examples/Images: 6 Images
-<img src="./readme_images/New_image_color.png" width="480" alt="Combined Image" />
-<br />
-<img src="./readme_images/New_image_cvt.png" width="480" alt="Combined Image" />
-<br />
+This is the step for predicting images from new input images, German traffic signs from Google search to test model performance. There is [Softmax function](https://developers.google.com/machine-learning/crash-course/multi-class-neural-networks/softmax), [tf.nn.softmax()](https://www.tensorflow.org/api_docs/python/tf/nn/softmax),  applied at the last of CNN Deep Learning model.<br>
+**Number of new Testing Examples/Images: 6 Images<br>
+<img src="./readme_images/New_image_color.png" width="800" height="400" alt="Combined Image" /><br />
+<br><img src="./readme_images/New_image_cvt.png" width="800" height="400" alt="Combined Image" /><br />
 
-Here are the results of the prediction:
+Here are the results of the prediction:<br>
 
 | Test Image from Google Search        |     Prediction	        	          |  
 |:------------------------------------:|:------------------------------------:| 
@@ -133,8 +128,8 @@ Here are the results of the prediction:
 | Yield					               | Yield							      |
 | Speed limit (70km/h)	               | Speed limit (70km/h)		    	  |
 | Stop 		                       	   | Stop 			                      |
-| Right-of-way at the next intersection| Right-of-way at the next intersection|
-The model was able to correctly guess 6 of the 6 German Traffic Signs, which gives an accuracy of 100%.
+| Right-of-way at the next intersection| Right-of-way at the next intersection|<br>
+The model was able to correctly guess 6 of the 6 German Traffic Signs, which gives an accuracy of 100%.<br>
 
 **Prediction Results Top 5 Softmax**
 Using [tf.nn.top_k()](https://www.tensorflow.org/api_docs/python/tf/nn/top_k), I can get top 5 prediction images from result of probabilities, Softmax output.
