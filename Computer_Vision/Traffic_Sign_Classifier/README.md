@@ -57,7 +57,7 @@ The contrast and brightness of images in each class/label are different in this 
     - **Rotation:** Rotating images in random angles, between -15.0 and 15.0 degrees.
     	<img src="./readme_images/Rotated.png" width="480" alt="Combined Image" /><br />
     
-    - **Affine-Transformation:** Transformating images in random (X1, Y1, X2, Y2) coordinate (4 corner points) between -5.0 and 5.0
+    - **Affine-Transformation:** Transformating images in random (X1, Y1, X2, Y2) coordinate (4 corner points) between -5.0 and 5.0<br>
     	<img src="./readme_images/Translated_01.png" width="480" alt="Combined Image" /><br />
 
 2. **Grayscaling:** Converting an BGR image into Grayscale image with [cv2.cvtColor()](https://docs.opencv.org/2.4/modules/imgproc/doc/miscellaneous_transformations.html). Then apply [Histogram Equalization](https://en.wikipedia.org/wiki/Histogram_equalization) into images with [cv2.equalizeHist()](https://docs.opencv.org/3.1.0/d5/daf/tutorial_py_histogram_equalization.html)
@@ -65,10 +65,10 @@ The contrast and brightness of images in each class/label are different in this 
 3. **Normalization:** Normalization with (pixel - 128)/128
 4. **Shuffling:** Ramdomly shuffle images and classes/labels in the same order
 
-**Statistic for Training Dataset after Pre-Process:**
+5. **Statistic for Training Dataset after Pre-Process:**
 	<img src="./readme_images/Train_data_gen.png" width="800" height="400" alt="Combined Image" /><br />
 
-The training dataset is balanced after preprocess, each class/label have around 8000 images. This preprocess is include generate fake data with [translation, rotation, affineTrans], Normalization, BGR to Grayscale, Histogram Equalization, and Shuffling.
+> The training dataset is balanced after preprocess, each class/label have around 8000 images. This preprocess is include generate fake data with [translation, rotation, affineTrans], Normalization, BGR to Grayscale, Histogram Equalization, and Shuffling.
 ---
 
 ##### Step 3: Design a Model Architecture, named as Traffic_Net
