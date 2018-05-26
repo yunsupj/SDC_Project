@@ -213,19 +213,19 @@ Using [tf.nn.top_k()](https://www.tensorflow.org/api_docs/python/tf/nn/top_k), I
 ---
 
 ### **Conclusion**
-###### **Review All Process**
+##### **Review All Process**
 Train CNN Deep Learning Model with German Traffic Sign Dataset in order to recognize Traffic Sign Images.
-> `Step 1:` Data Load - Pickle format 
-> `Step 2:` Data Preprocessing - Generate (Balancing Train Set), Gray, etc
-> `Step 3:` Design a Model Architecture (CNN), named as Traffic_Net 
-> `Step 4:` Training and Evaluation Model
-> `Step 5:` Test Model with New Image from Google
+ - `Step 1:` Data Load - Pickle format 
+ - `Step 2:` Data Preprocessing - Generate (Balancing Train Set), Gray, etc
+ - `Step 3:` Design a Model Architecture (CNN), named as Traffic_Net 
+ - `Step 4:` Training and Evaluation Model
+ - `Step 5:` Test Model with New Image from Google
 
-###### **Results**
+##### **Results**
 The model accracy can reach to more than around 95% after nearly 10 epochs, so this CNN, Traffic_Net model trained with 20 epochs.
-> `Train Set Accuracy:` 99.1%
-> `Valid Set Accuracy:` 96.1%
-> `Test Set Accuracy:` 94.1%
-> `New Test Set Accuracy:` 100.0%
+ - `Train Set Accuracy:` 99.1%
+ - `Valid Set Accuracy:` 96.1%
+ - `Test Set Accuracy:` 94.1%
+ - `New Test Set Accuracy:` 100.0%
 
 Next step will restore and retrain this CNN, Traffic_Net model, with tunning hyper-parameter such as learning rate (0.001 for this model).
