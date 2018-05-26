@@ -94,10 +94,10 @@ Final model consisted of the following layers:<br>
 |FC1       | Fully Connected	| Output 1024,  Dropout 0.5   				 |
 |FC2       | Softmax			| Output 43, Classes/Labels 		   		 |
 <br>
-**[Dropout](http://www.jmlr.org/papers/volume15/srivastava14a/srivastava14a.pdf?utm_content=buffer79b43&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer) is a regularization technique for reducing overfitting in neural networks by preventing complex co-adaptations on training data.
+** [Dropout](http://www.jmlr.org/papers/volume15/srivastava14a/srivastava14a.pdf?utm_content=buffer79b43&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer) is a regularization technique for reducing overfitting in neural networks by preventing complex co-adaptations on training data.
 <br>
-***Make Flat np.Array with [tf.contrib.layers.flatten()](https://www.tensorflow.org/api_docs/python/tf/contrib/layers/flatten):
-4x4 Stride Max Pool from Conv1 (512) +  2x2 Stride Max Pool from Conv2 (1024) + 2x2 Stride Max Pool from Conv3 (2048) = 3584 as Input Fully Connected Layer.
+*** Make Flat np.Array with [tf.contrib.layers.flatten()](https://www.tensorflow.org/api_docs/python/tf/contrib/layers/flatten):
+4x4 Stride Max Pool from Conv1 (512) +  2x2 Stride Max Pool from Conv2 (1024) + 2x2 Stride Max Pool from Conv3 (2048) = 3584 as Input Fully Connected Layer.<br>
 
 ---
 
@@ -106,8 +106,8 @@ Final model consisted of the following layers:<br>
 <img src="./readme_images/Train_model_param.png" width="500" alt="Combined Image" /><br />
 <img src="./readme_images/Accuracy.png" width="800" height="400" alt="Combined Image" /><br />
 <img src="./readme_images/Loss.png" width="800" height="400" alt="Combined Image" /><br />
-
-**Traffic_Net Model Evaluation**
+<br>
+**Traffic_Net Model Evaluation**<br>
 <img src="./readme_images/model_evaluation.png" width="360" alt="Combined Image" /><br />
 <img src="./readme_images/Epoch_acc.png" width="360" alt="Combined Image" /><br />
 From the Accuracy graph, the Traffic_Net model reaches enough accuracy after 20 epochs.
