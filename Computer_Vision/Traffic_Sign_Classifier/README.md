@@ -132,15 +132,16 @@ Here are the results of the prediction:<br>
 | Yield					               | Yield							      |
 | Speed limit (70km/h)	               | Speed limit (70km/h)		    	  |
 | Stop 		                       	   | Stop 			                      |
-| Right-of-way at the next intersection| Right-of-way at the next intersection|<br>
+| Right-of-way at the next intersection| Right-of-way at the next intersection|
+<br>
 The model was able to correctly guess 6 of the 6 German Traffic Signs, which gives an accuracy of 100%.<br>
 
 **Prediction Results Top 5 Softmax**
-Using [tf.nn.top_k()](https://www.tensorflow.org/api_docs/python/tf/nn/top_k), I can get top 5 prediction images from result of probabilities, Softmax output.
-<img src="./readme_images/Prediction_result.png" width="480" alt="Combined Image" />
-<br />
+Using [tf.nn.top_k()](https://www.tensorflow.org/api_docs/python/tf/nn/top_k), I can get top 5 prediction images from result of probabilities, Softmax output.<br>
+<img src="./readme_images/Prediction_result.png" width="800" hright="400" alt="Combined Image" /><br />
 
-**#1 Image: Priority road**
+**#1 Image: Priority road**<br>
+
 | Probability         	|     Prediction	        	| 
 |:---------------------:|:-----------------------------:| 
 | 1.0         			| Priority road   				| 
@@ -148,8 +149,8 @@ Using [tf.nn.top_k()](https://www.tensorflow.org/api_docs/python/tf/nn/top_k), I
 | .00					| Speed limit (30km/h)			|
 | .00	      			| Speed limit (50km/h)          |
 | .00				    | Speed limit (60km/h)   		|
-
-**#2 Image: Speed limit (20km/h)**
+<br>
+**#2 Image: Speed limit (20km/h)**<br>
 | Probability         	|     Prediction	        	| 
 |:---------------------:|:-----------------------------:| 
 | 1.0         			| Speed limit (20km/h)			| 
@@ -157,8 +158,8 @@ Using [tf.nn.top_k()](https://www.tensorflow.org/api_docs/python/tf/nn/top_k), I
 | .00					| Stop			                |
 | .00	      			| Wild animals crossing         |
 | .00				    | Double curve                  |
-
-**#3 Image: Yield**
+<br>
+**#3 Image: Yield**<br>
 | Probability         	|     Prediction	        	| 
 |:---------------------:|:-----------------------------:| 
 | 1.0         			| Yield         				| 
@@ -166,8 +167,8 @@ Using [tf.nn.top_k()](https://www.tensorflow.org/api_docs/python/tf/nn/top_k), I
 | .00					| Speed limit (80km/h)			|
 | .00	      			| Speed limit (60km/h)          |
 | .00				    | Priority road         		|
-
-**#4 Image: Speed limit (70km/h)**
+<br>
+**#4 Image: Speed limit (70km/h)**<br>
 | Probability         	|     Prediction	        	| 
 |:---------------------:|:-----------------------------:| 
 | 1.0         			| Speed limit (70km/h)   		| 
@@ -175,8 +176,8 @@ Using [tf.nn.top_k()](https://www.tensorflow.org/api_docs/python/tf/nn/top_k), I
 | .00					| Stop			                |
 | .00	      			| Roundabout mandatory          |
 | .00				    | Speed limit (80km/h)   		|
-
-**#5 Image: Stop**
+<br>
+**#5 Image: Stop**<br>
 | Probability         	|     Prediction	        	| 
 |:---------------------:|:-----------------------------:| 
 | 1.0         			| Stop          				| 
@@ -184,8 +185,8 @@ Using [tf.nn.top_k()](https://www.tensorflow.org/api_docs/python/tf/nn/top_k), I
 | .00					| Speed limit (50km/h)			|
 | .00	      			| Speed limit (120km/h)         |
 | .00				    | General caution   		    |
-
-**#6 Image: Right-of-way at the next intersection**
+<br>
+**#6 Image: Right-of-way at the next intersection**<br>
 | Probability         	|     Prediction	        	| 
 |:---------------------:|:-----------------------------:| 
 | 1.0         			| Right-of-way at the next intersection| 
@@ -193,12 +194,12 @@ Using [tf.nn.top_k()](https://www.tensorflow.org/api_docs/python/tf/nn/top_k), I
 | .00					| Road work         			|
 | .00	      			| Double curve                  |
 | .00				    | Dangerous curve to the left   |
-
+<br>
 ---
 ### **Conclusion**
 ###### **Review All Process**
 Train CNN Deep Learning Model with German Traffic Sign Dataset in order to recognize Traffic Sign Images.
-> `Step 1:` Data Load - Pickle format
+> `Step 1:` Data Load - Pickle format <br />
 > `Step 2:` Data Preprocessing - Generate (Balancing Train Set), Gray, etc
 > `Step 3:` Design a Model Architecture (CNN), named as Traffic_Net 
 > `Step 4:` Training and Evaluation Model
