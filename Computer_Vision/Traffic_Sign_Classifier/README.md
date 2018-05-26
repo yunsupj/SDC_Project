@@ -41,7 +41,7 @@ Download the dataset, German Traffic Sign, from [Here](https://d17h27t6h515a5.cl
         <img src="./readme_images/German_traffic_sign.png" width="800" height="400" alt="Combined Image" /><br />
 
     - **Statistic for Training Dataset:**
-<img src="./readme_images/Train_data.png" width="800" height="400" alt="Combined Image" /> <br />
+		<img src="./readme_images/Train_data.png" width="800" height="400" alt="Combined Image" /> <br />
 
 ---
 ##### Step 2: Data Preprocessing
@@ -52,14 +52,14 @@ The contrast and brightness of images in each class/label are different in this 
 
 1. **Generate images:** Make more images around 8000 images in each class/label 
     - **Translation:** Translating images in random (X, Y) coordinate, between -5.0 and 5.0
-<img src="./readme_images/translated.png" width="480" alt="Combined Image" /> 
-<br /> 
+		<img src="./readme_images/translated.png" width="480" alt="Combined Image" /><br /> 
+    
     - **Rotation:** Rotating images in random angles, between -15.0 and 15.0 degrees.
-    <img src="./readme_images/Rotated.png" width="480" alt="Combined Image" /> 
-<br />
+    	<img src="./readme_images/Rotated.png" width="480" alt="Combined Image" /><br />
+    
     - **Affine-Transformation:** Transformating images in random (X1, Y1, X2, Y2) coordinate, 4 corner points, between -5.0 and 5.0
-    <img src="./readme_images/Translated_01.png" width="480" alt="Combined Image" /> 
-<br />
+    	<img src="./readme_images/Translated_01.png" width="480" alt="Combined Image" /><br />
+
 2. **Grayscaling:** Converting an BGR image into Grayscale image with [cv2.cvtColor()](https://docs.opencv.org/2.4/modules/imgproc/doc/miscellaneous_transformations.html). Then apply [Histogram Equalization](https://en.wikipedia.org/wiki/Histogram_equalization) into images with [cv2.equalizeHist()](https://docs.opencv.org/3.1.0/d5/daf/tutorial_py_histogram_equalization.html)
 
 3. **Normalization:** Normalization with (pixel - 128)/128
