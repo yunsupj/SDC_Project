@@ -120,7 +120,11 @@ From the Accuracy graph, the Traffic_Net model reaches enough accuracy after 20 
 
 This is the step for predicting images from new input images, German traffic signs from Google search to test model performance. There is [Softmax function](https://developers.google.com/machine-learning/crash-course/multi-class-neural-networks/softmax), [tf.nn.softmax()](https://www.tensorflow.org/api_docs/python/tf/nn/softmax),  applied at the last of CNN Deep Learning model.<br>
 **Number of new Testing Examples/Images: 6 Images<br>
+
+**Resize New Traffic Sign Images as 32x32 (BGR -> RGB for visualize)**<br>
 <img src="./readme_images/New_image_color.png" width="800" height="400" alt="Combined Image" /><br />
+<br>
+**Pre-processing New Traffic Sign Images to apply into Traffic_Net Model**
 <br><img src="./readme_images/New_image_cvt.png" width="800" height="400" alt="Combined Image" /><br />
 
 Here are the results of the prediction:<br>
@@ -149,8 +153,10 @@ Using [tf.nn.top_k()](https://www.tensorflow.org/api_docs/python/tf/nn/top_k), I
 | .00					| Speed limit (30km/h)			|
 | .00	      			| Speed limit (50km/h)          |
 | .00				    | Speed limit (60km/h)   		|
-<br>
+<br />
+
 **#2 Image: Speed limit (20km/h)**<br>
+
 | Probability         	|     Prediction	        	| 
 |:---------------------:|:-----------------------------:| 
 | 1.0         			| Speed limit (20km/h)			| 
@@ -158,8 +164,10 @@ Using [tf.nn.top_k()](https://www.tensorflow.org/api_docs/python/tf/nn/top_k), I
 | .00					| Stop			                |
 | .00	      			| Wild animals crossing         |
 | .00				    | Double curve                  |
-<br>
+<br />
+
 **#3 Image: Yield**<br>
+
 | Probability         	|     Prediction	        	| 
 |:---------------------:|:-----------------------------:| 
 | 1.0         			| Yield         				| 
@@ -167,8 +175,10 @@ Using [tf.nn.top_k()](https://www.tensorflow.org/api_docs/python/tf/nn/top_k), I
 | .00					| Speed limit (80km/h)			|
 | .00	      			| Speed limit (60km/h)          |
 | .00				    | Priority road         		|
-<br>
+<br />
+
 **#4 Image: Speed limit (70km/h)**<br>
+
 | Probability         	|     Prediction	        	| 
 |:---------------------:|:-----------------------------:| 
 | 1.0         			| Speed limit (70km/h)   		| 
@@ -176,8 +186,10 @@ Using [tf.nn.top_k()](https://www.tensorflow.org/api_docs/python/tf/nn/top_k), I
 | .00					| Stop			                |
 | .00	      			| Roundabout mandatory          |
 | .00				    | Speed limit (80km/h)   		|
-<br>
+<br />
+
 **#5 Image: Stop**<br>
+
 | Probability         	|     Prediction	        	| 
 |:---------------------:|:-----------------------------:| 
 | 1.0         			| Stop          				| 
@@ -185,8 +197,10 @@ Using [tf.nn.top_k()](https://www.tensorflow.org/api_docs/python/tf/nn/top_k), I
 | .00					| Speed limit (50km/h)			|
 | .00	      			| Speed limit (120km/h)         |
 | .00				    | General caution   		    |
-<br>
+<br />
+
 **#6 Image: Right-of-way at the next intersection**<br>
+
 | Probability         	|     Prediction	        	| 
 |:---------------------:|:-----------------------------:| 
 | 1.0         			| Right-of-way at the next intersection| 
@@ -194,12 +208,14 @@ Using [tf.nn.top_k()](https://www.tensorflow.org/api_docs/python/tf/nn/top_k), I
 | .00					| Road work         			|
 | .00	      			| Double curve                  |
 | .00				    | Dangerous curve to the left   |
-<br>
+<br />
+
 ---
+
 ### **Conclusion**
 ###### **Review All Process**
 Train CNN Deep Learning Model with German Traffic Sign Dataset in order to recognize Traffic Sign Images.
-> `Step 1:` Data Load - Pickle format <br />
+> `Step 1:` Data Load - Pickle format 
 > `Step 2:` Data Preprocessing - Generate (Balancing Train Set), Gray, etc
 > `Step 3:` Design a Model Architecture (CNN), named as Traffic_Net 
 > `Step 4:` Training and Evaluation Model
