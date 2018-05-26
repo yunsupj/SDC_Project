@@ -92,7 +92,8 @@ Final model consisted of the following layers:<br>
 |Conv3-Pool| Max pooling	    | 2x2 Stride,  Outputs 4x4x128, Dropout 0.7  |
 |Pre-FC    | Flatten        	| ***2048+1024+512 = 3584, Output 3584        |
 |FC1       | Fully Connected	| Output 1024,  Dropout 0.5   				 |
-|FC2       | Softmax			| Output 43, Classes/Labels 		   		 |<br>
+|FC2       | Softmax			| Output 43, Classes/Labels 		   		 |
+<br>
 ** [Dropout](https://en.wikipedia.org/wiki/Dropout_(neural_networks)) is a regularization technique for reducing overfitting in neural networks by preventing complex co-adaptations on training data.<br>
 *** Make Flat np.Array with [tf.contrib.layers.flatten()](https://www.tensorflow.org/api_docs/python/tf/contrib/layers/flatten):
 4x4 Stride Max Pool from Conv1 (512) +  2x2 Stride Max Pool from Conv2 (1024) + 2x2 Stride Max Pool from Conv3 (2048) = 3584 as Input Fully Connected Layer.
