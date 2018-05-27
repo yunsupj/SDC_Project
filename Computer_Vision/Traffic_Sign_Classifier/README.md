@@ -94,6 +94,8 @@ Final model consisted of the following layers:<br>
 |FC1       | Fully Connected	| Output 1024,  Dropout 0.5   				 |
 |FC2       | Softmax			| Output 43, Classes/Labels 		   		 |
 <br />
+[Dropout](http://www.jmlr.org/papers/volume15/srivastava14a/srivastava14a.pdf?utm_content=buffer79b43&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer)
+
 ** A technique [Dropout](http://www.jmlr.org/papers/volume15/srivastava14a/srivastava14a.pdf?utm_content=buffer79b43&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer) is a regularization technique for reducing overfitting in neural networks by preventing complex co-adaptations on training data.
 <br>
 *** Make Flat np.Array with [tf.contrib.layers.flatten()](https://www.tensorflow.org/api_docs/python/tf/contrib/layers/flatten):
@@ -142,7 +144,7 @@ The model was able to correctly guess 6 of the 6 German Traffic Signs, which giv
 
 **Prediction Results Top 5 Softmax**
 Using [tf.nn.top_k()](https://www.tensorflow.org/api_docs/python/tf/nn/top_k), I can get top 5 prediction images from result of probabilities, Softmax output.<br>
-<img src="./readme_images/Prediction_result.png" width="800" hright="400" alt="Combined Image" /><br />
+<img src="./readme_images/Prediction_result.png" width="850" hright="400" alt="Combined Image" /><br />
 
 **#1 Image: Priority road**<br>
 
@@ -213,7 +215,7 @@ Using [tf.nn.top_k()](https://www.tensorflow.org/api_docs/python/tf/nn/top_k), I
 ---
 
 ### **Conclusion**
-##### **Review All Process**
+#### **Review All Process**
 Train CNN Deep Learning Model with German Traffic Sign Dataset in order to recognize Traffic Sign Images.
  - `Step 1:` Data Load - Pickle format 
  - `Step 2:` Data Preprocessing - Generate (Balancing Train Set), Gray, etc
@@ -221,7 +223,7 @@ Train CNN Deep Learning Model with German Traffic Sign Dataset in order to recog
  - `Step 4:` Training and Evaluation Model
  - `Step 5:` Test Model with New Image from Google
 
-##### **Results**
+#### **Results**
 The model accracy can reach to more than around 95% after nearly 10 epochs, so this CNN, Traffic_Net model trained with 20 epochs.
  - `Train Set Accuracy:` 99.1%
  - `Valid Set Accuracy:` 96.1%
