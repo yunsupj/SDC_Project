@@ -94,8 +94,6 @@ Final model consisted of the following layers:<br>
 |FC1       | Fully Connected	| Output 1024,  Dropout 0.5   				 |
 |FC2       | Softmax			| Output 43, Classes/Labels 		   		 |
 <br>
-[Dropout](http://www.jmlr.org/papers/volume15/srivastava14a/srivastava14a.pdf?utm_content=buffer79b43&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer)
-
 ** A technique [Dropout](http://www.jmlr.org/papers/volume15/srivastava14a/srivastava14a.pdf?utm_content=buffer79b43&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer) is a regularization technique for reducing overfitting in neural networks by preventing complex co-adaptations on training data.
 <br>
 *** Make Flat np.Array with [tf.contrib.layers.flatten()](https://www.tensorflow.org/api_docs/python/tf/contrib/layers/flatten):
