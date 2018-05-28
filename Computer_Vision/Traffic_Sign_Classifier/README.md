@@ -100,9 +100,9 @@ Final model consisted of the following layers:<br>
 *** Make Flat np.Array with [tf.contrib.layers.flatten()](https://www.tensorflow.org/api_docs/python/tf/contrib/layers/flatten):
 4x4 Stride Max Pool from Conv1 (512) +  2x2 Stride Max Pool from Conv2 (1024) + 2x2 Stride Max Pool from Conv3 (2048) = 3584 as Input Fully Connected Layer.
 
-For this model, Traffic_Net, designed 4 Big layers - 3 Convolution layers and 1 fully connected layer. <br>
+For this model, Traffic_Net, designed 4 Big layers - 3 Convolution layers and 1 fully connected layer.
 Each convolution layer includes 1 activation function, ReLU, and 1 2x2 Max Pooling layer. <br>
-At the last layer, fully connected later, include 1 activation layer with softmax function. <br>
+At the last layer, fully connected later, include 1 activation layer with softmax function.
 This softmax function executes the final output, probabilities of 43 Traffic sign classification values. <br>
 In order to avoid overfitting, each layer applied 90%, 80% 70%, and 50% od dropout functions. 
 ---
