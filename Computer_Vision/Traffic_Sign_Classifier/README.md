@@ -98,7 +98,7 @@ Final model consisted of the following layers:<br>
 ** A technique [Dropout](http://www.jmlr.org/papers/volume15/srivastava14a/srivastava14a.pdf?utm_content=buffer79b43&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer) is a regularization technique for reducing overfitting in neural networks by preventing complex co-adaptations on training data.
 <br>
 *** Make Flat np.Array with [tf.contrib.layers.flatten()](https://www.tensorflow.org/api_docs/python/tf/contrib/layers/flatten):
-4x4 Stride Max Pool from Conv1 (512) +  2x2 Stride Max Pool from Conv2 (1024) + 2x2 Stride Max Pool from Conv3 (2048) = 3584 as Input Fully Connected Layer.<br>
+4x4 Stride Max Pool from Conv1 (512) +  2x2 Stride Max Pool from Conv2 (1024) + 2x2 Stride Max Pool from Conv3 (2048) = 3584 as Input Fully Connected Layer.<br />
 
 For this model, Traffic_Net, designed 4 Big layers - 3 Convolution layers and 1 fully connected layer. <br>
 Each convolution layer includes 1 activation function, ReLU, and 1 2x2 Max Pooling layer. <br>
@@ -110,7 +110,8 @@ In order to avoid overfitting, each layer applied 90%, 80% 70%, and 50% od dropo
 #### Step 4: Training and Evaluation Model, named as Traffic_Net
 
 <img src="./readme_images/Train_model_param.png" width="500" alt="Combined Image" /><br />
-I choose Adam optimizer instead of the classical stochastic gradient descent optimizer because this optimizer procedures to update network weights iterative based on training data, and the performance is already proved in many different types of the deep learning model.<br>
+I choose Adam optimizer instead of the classical stochastic gradient descent optimizer because this optimizer procedures to update network weights iterative based on training data, and the performance is already proved in many different types of the deep learning model.<br />
+<br>
 <img src="./readme_images/Accuracy.png" width="800" height="400" alt="Combined Image" /><br />
 <img src="./readme_images/Loss.png" width="800" height="400" alt="Combined Image" /><br />
 <br>
@@ -131,6 +132,8 @@ This is the step for predicting images from new input images, German traffic sig
 
 **Original Image**<br>
 <img src="./new_images/11_Rightofway_at_the_next_intersection.jpg" width="300" alt="Combined Image" /><br />
+<img src="./new_images/12_Priority_road.jpg" width="300" alt="Combined Image" /><br />
+<img src="./new_images/14_Stop.jpg" width="300" alt="Combined Image" /><br />
 <br>
 
 **Resize New Traffic Sign Images as 32x32 (BGR -> RGB for visualize)**<br>
