@@ -100,6 +100,7 @@ Final model consisted of the following layers:<br>
 *** Make Flat np.Array with [tf.contrib.layers.flatten()](https://www.tensorflow.org/api_docs/python/tf/contrib/layers/flatten):
 4x4 Stride Max Pool from Conv1 (512) +  2x2 Stride Max Pool from Conv2 (1024) + 2x2 Stride Max Pool from Conv3 (2048) = 3584 as Input Fully Connected Layer.<br />
 
+
 For this model, Traffic_Net, designed 4 Big layers - 3 Convolution layers and 1 fully connected layer. <br>
 Each convolution layer includes 1 activation function, ReLU, and 1 2x2 Max Pooling layer. <br>
 At the last layer, fully connected later, include 1 activation layer with softmax function. <br>
@@ -136,9 +137,15 @@ This is the step for predicting images from new input images, German traffic sig
 <img src="./new_images/14_Stop.jpg" width="300" alt="Combined Image" /><br />
 <br>
 
+> The new test images need to preprocess include reshape, convert color and normalize.
+The size of new test images are different as test input, so I made all image reshape as 32 x32 = (32, 32, 3). 
+
 **Resize New Traffic Sign Images as 32x32 (BGR -> RGB for visualize)**<br>
 <img src="./readme_images/New_image_color.png" width="800" height="400" alt="Combined Image" /><br />
 <br>
+
+> The 32x32, (32, 32, 3) need to preprocess into (32, 32, 1) which is the same shape as train input images.
+
 **Pre-processing New Traffic Sign Images to apply into Traffic_Net Model**
 <br><img src="./readme_images/New_image_cvt.png" width="800" height="400" alt="Combined Image" /><br />
 
