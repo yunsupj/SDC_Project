@@ -100,12 +100,16 @@ Final model consisted of the following layers:<br>
 *** Make Flat np.Array with [tf.contrib.layers.flatten()](https://www.tensorflow.org/api_docs/python/tf/contrib/layers/flatten):
 4x4 Stride Max Pool from Conv1 (512) +  2x2 Stride Max Pool from Conv2 (1024) + 2x2 Stride Max Pool from Conv3 (2048) = 3584 as Input Fully Connected Layer.<br>
 
+> For this model, Traffic_Net, designed 4 Big layers - 3 Convolution layers and 1 fully connected layer. Each convolution layer includes 1 activation function, ReLU, and 1 2x2 Max Pooling layer. At the last layer, fully connected later, include 1 activation layer with softmax function. This softmax function executes the final output, probabilities of 43 Traffic sign classification values. In order to avoid overfitting, each layer applied 90%, 80% 70%, and 50% od dropout functions. 
 ---
 
 #### Step 4: Training and Evaluation Model, named as Traffic_Net
 
 <img src="./readme_images/Train_model_param.png" width="500" alt="Combined Image" /><br />
 <img src="./readme_images/Accuracy.png" width="800" height="400" alt="Combined Image" /><br />
+
+I choose Adam optimizer instead of the classical stochastic gradient descent optimizer because this optimizer procedures to update network weights iterative based on training data, and the performance is already proved in many different types of the deep learning model.<br>
+
 <img src="./readme_images/Loss.png" width="800" height="400" alt="Combined Image" /><br />
 <br>
 <br />
@@ -113,7 +117,8 @@ Final model consisted of the following layers:<br>
 <br>
 <img src="./readme_images/model_evaluation.png" width="360" alt="Combined Image" /><br />
 <img src="./readme_images/Epoch_acc.png" width="360" alt="Combined Image" /><br />
-From the Accuracy graph, the Traffic_Net model reaches enough accuracy after 20 epochs.
+First, I tried 0.0001 as learning rate, but it is too slow to reach to enough accuracy. Therefore, I changed into 0.001 as learning rate. <br>
+From the Accuracy graph, the Traffic_Net model reaches enough accuracy after 10 epochs, so I modified 200 epochs to 20 epochs in final version of this project.
 
 ---
 
