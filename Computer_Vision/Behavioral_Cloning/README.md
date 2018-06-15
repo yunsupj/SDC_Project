@@ -181,6 +181,7 @@ The shapes and the number of parameters: Keras
 |dense_4 (Dense)                 |(None, 1)         |11      |dense_3          |
 |                                |**Total params**  |252,219 |                 |
 <br />
+
 > For this model, designed 10 Big layers - 1 Lambda Layer for Normalization, 5 Convolution layers and 4 fully connected layer. Each convolution and fully connected layer includes 1 activation function, ELU.
 In order to avoid overfitting, there is 50% dropout fuction applied between convolution layer and fully connected layer.
 ---
