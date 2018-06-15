@@ -100,24 +100,24 @@ Training model with unbalanced dataset makes more bias in particular classes/lab
 In the real world, there is various conditions exist such as shadow, cloud, rain or sunny. Therefore, I add some techniques, shadowing and [adjust_gamma](https://en.wikipedia.org/wiki/Gamma_correction), to provide a various condition of images based on brightness and contrasts. [model.py lines 51-124]<br>
 
 - **Flip:** Flipt the image left <-> right, and adjust the steering angle. <br>
-	|Orignal Image | Flipped Image|
+    |Orignal Image | Flipped Image|
     |:------------:|:------------:|
-    |[Orignal Image](./readme_images/original.png)|[Flipped Image](./readme_images/filp.png)|
+    |![Orignal Image](./readme_images/original.png)|![Flipped Image](./readme_images/filp.png)|
     
 - **Translate:** Translate the image in random (X: [-30.0, 30.0], Y: [-5.0, 5.0]) coordinate, and adjust the steering angle.<br>
     |Orignal Image   | Translated Image|
     |:--------------:|:--------------:|
-    |[Orignal Image](./readme_images/original.png)|[Translated Image](./readme_images/translation.png)|
+    |![Orignal Image](./readme_images/original.png)|![Translated Image](./readme_images/translation.png)|
     
 - **Adjust Gamma:** Adjust gamma value to change a brightness of image OpenCV provides Color map, but changing the only brightness with gamma needs to make own color map. The table is from Google search, mapping the pixel values [0, 255] to adjust gamma values.<br>
     |Orignal Image | Adjusted Image|
     |:------------:|:------------:|
-    |[Orignal Image](./readme_images/original.png)|[Adjusted Image](./readme_images/gamma.png)|
+    |![Orignal Image](./readme_images/original.png)|![Adjusted Image](./readme_images/gamma.png)|
 
 - **Make Shadow:** Make shadow on the images in randomly chosen locations with a line. The line is made by randomly chose two points, and choose above/blow area to make a shadow. By using mathematical function, (ym-y1)*(x2-x1) - (y2-y1)*(xm-x1) > 0.<br>
-    |Orignal Image | Shadow Image|
+    |Orignal Image | Shadow Image |
     |:------------:|:------------:|
-    |[Orignal Image](./readme_images/no_shadow.png)|[Shadow Image](./readme_images/shadow.png)|
+    |![Orignal Image](./readme_images/no_shadow.png)|![Shadow Image](./readme_images/shadow.png)|
 
 ##### Python Generator
 For training, the following augumentation technique with Python generator to generate unlimited number of images in randomly choose index number from the train image set: [model.py lines 126-173]<br>
@@ -138,7 +138,7 @@ The training dataset seems like the small size, but augmentation technique with 
 
 The shapes and the number of parameters: Keras<br>
 | Layer (type)                   |Output Shape      |Param # |Connected to     |
-|--------------------------------|------------------|-------:|-----------------|
+|:------------------------------:|:----------------:|:------:|:---------------:|
 |lambda_1 (Lambda)               |(None, 66, 200, 3)|0       |lambda_input_1   |
 |convolution2d_1 (Convolution2D) |(None, 31, 98, 24)|1824    |lambda_1         |
 |convolution2d_2 (Convolution2D) |(None, 14, 47, 36)|21636   |convolution2d_1  |
@@ -152,26 +152,27 @@ The shapes and the number of parameters: Keras<br>
 |dense_3 (Dense)                 |(None, 10)        |510     |dense_2          |
 |dense_4 (Dense)                 |(None, 1)         |11      |dense_3          |
 |                                |**Total params**  |252,219 |                 |
-<br>
+<br />
+
 Model consisted of the following layers:<br>
-|Layer     |Functions      		|     Description	        			     |
+|Layer     |Functions      	|     Description	                     |
 |:--------:|:------------------:|:------------------------------------------:| 
-|Input     |          	     	| 66x120x3 YUV image   			             |
+|Input     |          	     	| 66x120x3 YUV image   			     |
 |Lambda    | Normalization      | Image/127.5 - 1.0                          |
 |Conv1     | Convolution 5x5    | 2x2 Stride, 24 filter                      |
-|Conv1-Act | ELU				| Activation Function   				     |
+|Conv1-Act | ELU		| Activation Function   	             |
 |Conv2     | Convolution 5x5    | 2x2 Stride, 36 filter                      |
-|Conv2-Act | ELU				| Activation Function   				     |
+|Conv2-Act | ELU		| Activation Function                        |
 |Conv3     | Convolution 5x5    | 2x2 Stride, 48 filter                      |
-|Conv3-Act | ELU				| Activation Function   				     |
+|Conv3-Act | ELU	        | Activation Function   		     |
 |Conv4     | Convolution 3x3    | 1x1 Stride, 64 filter                      |
-|Conv4-Act | ELU				| Activation Function   				     |
+|Conv4-Act | ELU		| Activation Function   	             |
 |Conv5     | Convolution 3x3    | 1x1 Stride, 64 filter                      |
-|Conv5-Act | ELU				| Activation Function   				     |
+|Conv5-Act | ELU		| Activation Function   		     |
 |Dropout   | 50% Drop Out       | Avoid over fitting                         |
-|FC1       | Fully Connected	| Output 100, Activation: ELU   			 |
-|FC2       | Fully Connected	| Output 50, Activation: ELU   		     	 |
-|FC3       | Fully Connected	| Output 10, Activation: ELU   			     |
-|FC4       | Fully Connected	| Output 1, Steering Angle 		   	     	 |
+|FC1       | Fully Connected	| Output 100, Activation: ELU                |
+|FC2       | Fully Connected	| Output 50, Activation: ELU   		     |
+|FC3       | Fully Connected	| Output 10, Activation: ELU   	             |
+|FC4       | Fully Connected	| Output 1, Steering Angle 		     |
 
 ---
