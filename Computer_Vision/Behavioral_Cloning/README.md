@@ -62,7 +62,7 @@ jupyter notebook ./<dir>/Behavioral_Cloning_notebook.ipynb
 
 #### Step 1: Data Load & Summary
 
-Collect the dataset with good driving behavior from [Unity Simulator](https://github.com/udacity/CarND-Behavioral-Cloning-P3), saved as driving_log.csv. 
+Collect the dataset with good driving behavior from the [Simulator](https://github.com/udacity/self-driving-car-sim), saved as driving_log.csv and IMG, which includes all three side of images. 
 This dataset consists of  7 columns, [center, left, right, steering, throttle, brake, speed].
 **This simulator has three cameras in front of the car to collect images from different angles, `Center`, `Left`, `Right`. [model.py lines 19-39]
 
