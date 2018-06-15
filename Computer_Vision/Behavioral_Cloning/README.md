@@ -55,7 +55,7 @@ It requires training data in `./data/` folder.
 python model.py
 
 # In Jupyter Notebook
-jupyter notebook ./Behavioral_Cloning_notebook.ipynb
+jupyter notebook ./<dir>/Behavioral_Cloning_notebook.ipynb
 ```
 ---
 ### **The steps of this project are the following:**
@@ -216,8 +216,8 @@ Train NVIDIA Model with collected image dataset from Unity Simulator.
 
 #### **Results**
 The trained model successfully drives around track one without leaving the road.
- - `Train Set Accuracy:` 99.1%
- - `Valid Set Accuracy:` 96.1%
+ - `Train Set Loss:` 99.1%
+ - `Valid Set Loss:` 96.1%
 
 
 ---
