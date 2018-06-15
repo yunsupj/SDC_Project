@@ -181,5 +181,42 @@ The shapes and the number of parameters: Keras
 |dense_4 (Dense)                 |(None, 1)         |11      |dense_3          |
 |                                |**Total params**  |252,219 |                 |
 <br />
+> For this model, designed 10 Big layers - 1 Lambda Layer for Normalization, 5 Convolution layers and 4 fully connected layer. Each convolution and fully connected layer includes 1 activation function, ELU.
+In order to avoid overfitting, there is 50% dropout fuction applied between convolution layer and fully connected layer.
+---
+
+#### Step 4: Training and Evaluation Model
+##### Training Model
+- **Hardware:** AWS g2.2xlarge (GPU)
+- **Loss Fuction:** Mean Squared Error (MSE), gap between y_hat and y
+- **Optimizer:** Adam optimizer
+- **Learning Rate:** 1.0e-4
+- **Epochs:** 8, it is a good enough
+- **Samples_per_epoch:** 20,000, unlimited number of images agumented by python generator
+- **Batch_size:** 40, there is memory issue
+<br />
+
+**Model Evaluation**<br>
+<br>
+<img src="./readme_images/model_evaluation.png" width="360" alt="Combined Image" /><br />
+First, I tried 1.0e-3(default) as learning rate, but it converged too fast and stop to reduce loss. Therefore, I changed into 1.0e-4 as learning rate.<br>
+I set the model check-point with Keras [Callback.ModelCheckpoint](https://keras.io/callbacks/) function, so I can save the best model based on validation loss every epoch.<br>
+From the check-point, the model reaches enough accuracy after 5-8 epochs, so I modified to 8 epochs in the final version of this project.<br>
+
+---
+
+### **Conclusion**
+#### **Review All Process**
+Train NVIDIA Model with collected image dataset from Unity Simulator.
+ - `Step 1:` Collect Data and Load - 3 side of images, steering angle  
+ - `Step 2:` Data Preprocessing - Generate (Balancing Train Set), Crop, YUV, etc
+ - `Step 3:` Using NVIDIA Model Architecture (CNN)
+ - `Step 4:` Training and Evaluation Model
+
+#### **Results**
+The trained model successfully drives around track one without leaving the road.
+ - `Train Set Accuracy:` 99.1%
+ - `Valid Set Accuracy:` 96.1%
+
 
 ---
