@@ -162,6 +162,7 @@ Model consisted of the following layers:
 |FC3       | Fully Connected	| Output 10, Activation: ELU   	             |
 |FC4       | Fully Connected	| Output 1, Steering Angle 		     |
 <br />
+
 The shapes and the number of parameters: Keras
 
 | Layer (type)                   |Output Shape      |Param # |Connected to     |
