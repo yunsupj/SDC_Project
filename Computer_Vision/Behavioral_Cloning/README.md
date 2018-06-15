@@ -79,10 +79,10 @@ This dataset consists of  7 columns, [center, left, right, steering, throttle, b
 
 * Visualization of the dataset:<br>
     - **Sampling Images from Training Dataset:**
-        <img src="./readme_images/image_sample_rgb.png" width="800" height="200" alt="Combined Image" /><br />
+        <img src="./readme_images/image_sample_rgb.png" width="850" height="400" alt="Combined Image" /><br />
 
     - **Statistic for Training Dataset:**
-		<img src="./readme_images/Train_data.png" width="800" height="400" alt="Combined Image" /> <br />
+		<img src="./readme_images/Train_data.png" width="850" height="500" alt="Combined Image" /> <br />
 
 ---
 #### Step 2: Data Preprocessing
@@ -90,9 +90,9 @@ This dataset consists of  7 columns, [center, left, right, steering, throttle, b
 The top portion of the image captures trees and hills and sky, and the bottom portion of the image captures the hood of the car. During the model training, it might be faster if each image crop to focus on only the portion of the image that is useful for predicting a steering angle. In addition, the training images need to do pre-process into the best shape and color-type for NVIDIA model, [RGB](https://en.wikipedia.org/wiki/RGB_color_model) to [YUV](https://en.wikipedia.org/wiki/YUV). [model.py lines 41-51]<br>
 - **Crop:** remove top 68, bottom 23 pixels<br>
 - **Resize:** (160, 320, 3) -> (66, 200, 3), which is input shape for NVIDIA model<br>
-    <img src="./readme_images/crop_resize_rgb.png" width=“800” height=“200” alt=“Combined Image” /><br />
+    <img src="./readme_images/crop_resize_rgb.png" width=“850” height=“400” alt=“Combined Image” /><br />
 - **Convert Color:** RGB to YUV<br>
-    <img src="./readme_images/crop_resize_yuv.png" width=“800” height=“200” alt=“Combined Image” /><br />
+    <img src="./readme_images/crop_resize_yuv.png" width=“850” height=“400” alt=“Combined Image” /><br />
 
 ##### Generate Train Image
 Training model with unbalanced dataset makes more bias in particular classes/labels after creating/training CNN model. It is necessary to make balanced dataset before train the CNN model to get the best accuracy. Also, balanced and enough training data set automatically tune parameter for CNN model. In order to make balanced dataset, it requires some techniques such as image Translation and Flip.<br>
@@ -100,21 +100,25 @@ Training model with unbalanced dataset makes more bias in particular classes/lab
 In the real world, there is various conditions exist such as shadow, cloud, rain or sunny. Therefore, I add some techniques, shadowing and [adjust_gamma](https://en.wikipedia.org/wiki/Gamma_correction), to provide a various condition of images based on brightness and contrasts. [model.py lines 51-124]<br>
 
 - **Flip:** Flipt the image left <-> right, and adjust the steering angle. 
+   
     |Orignal Image | Flipped Image|
     |:------------:|:------------:|
     |![Orignal Image](./readme_images/original.png)|![Flipped Image](./readme_images/filp.png)|
     
 - **Translate:** Translate the image in random (X: [-30.0, 30.0], Y: [-5.0, 5.0]) coordinate, and adjust the steering angle.
+   
     |Orignal Image   | Translated Image|
     |:--------------:|:--------------:|
     |![Orignal Image](./readme_images/original.png)|![Translated Image](./readme_images/translation.png)|
     
 - **Adjust Gamma:** Adjust gamma value to change a brightness of image OpenCV provides Color map, but changing the only brightness with gamma needs to make own color map. The table is from Google search, mapping the pixel values [0, 255] to adjust gamma values.
+   
     |Orignal Image | Adjusted Image|
     |:------------:|:------------:|
     |![Orignal Image](./readme_images/original.png)|![Adjusted Image](./readme_images/gamma.png)|
 
 - **Make Shadow:** Make shadow on the images in randomly chosen locations with a line. The line is made by randomly chose two points, and choose above/blow area to make a shadow. By using mathematical function, (ym-y1)*(x2-x1) - (y2-y1)*(xm-x1) > 0.
+   
     |Orignal Image | Shadow Image |
     |:------------:|:------------:|
     |![Orignal Image](./readme_images/no_shadow.png)|![Shadow Image](./readme_images/shadow.png)|
@@ -137,6 +141,7 @@ The training dataset seems like the small size, but augmentation technique with 
 <img src="./readme_images/nvidia_model.png" width="600" height="800" alt="Combined Image" /><br />
 
 The shapes and the number of parameters: Keras
+
 | Layer (type)                   |Output Shape      |Param # |Connected to     |
 |:------------------------------:|:----------------:|:------:|:---------------:|
 |lambda_1 (Lambda)               |(None, 66, 200, 3)|0       |lambda_input_1   |
@@ -155,6 +160,7 @@ The shapes and the number of parameters: Keras
 <br />
 
 Model consisted of the following layers:
+
 |Layer     |Functions      	|     Description	                     |
 |:--------:|:------------------:|:------------------------------------------:| 
 |Input     |          	     	| 66x120x3 YUV image   			     |
