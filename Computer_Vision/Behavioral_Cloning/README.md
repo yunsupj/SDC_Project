@@ -140,25 +140,6 @@ The NVIDIA Behavioral Cloning Model designed and implemented a CNN deep learning
 The training dataset seems like the small size, but augmentation technique with Python generator can generate an unlimited number of images, so it can figure out a small number of the train set. [model.py lines 175-202]<br>
 <img src="./readme_images/nvidia_model.png" width="600" height="800" alt="Combined Image" /><br />
 
-The shapes and the number of parameters: Keras
-
-| Layer (type)                   |Output Shape      |Param # |Connected to     |
-|:------------------------------:|:----------------:|:------:|:---------------:|
-|lambda_1 (Lambda)               |(None, 66, 200, 3)|0       |lambda_input_1   |
-|convolution2d_1 (Convolution2D) |(None, 31, 98, 24)|1824    |lambda_1         |
-|convolution2d_2 (Convolution2D) |(None, 14, 47, 36)|21636   |convolution2d_1  |
-|convolution2d_3 (Convolution2D) |(None, 5, 22, 48) |43248   |convolution2d_2  |
-|convolution2d_4 (Convolution2D) |(None, 3, 20, 64) |27712   |convolution2d_3  |
-|convolution2d_5 (Convolution2D) |(None, 1, 18, 64) |36928   |convolution2d_4  |
-|dropout_1 (Dropout)             |(None, 1, 18, 64) |0       |convolution2d_5  |
-|flatten_1 (Flatten)             |(None, 1152)      |0       |dropout_1        |
-|dense_1 (Dense)                 |(None, 100)       |115300  |flatten_1        |
-|dense_2 (Dense)                 |(None, 50)        |5050    |dense_1          |
-|dense_3 (Dense)                 |(None, 10)        |510     |dense_2          |
-|dense_4 (Dense)                 |(None, 1)         |11      |dense_3          |
-|                                |**Total params**  |252,219 |                 |
-<br />
-
 Model consisted of the following layers:
 
 |Layer     |Functions      	|     Description	                     |
@@ -180,5 +161,24 @@ Model consisted of the following layers:
 |FC2       | Fully Connected	| Output 50, Activation: ELU   		     |
 |FC3       | Fully Connected	| Output 10, Activation: ELU   	             |
 |FC4       | Fully Connected	| Output 1, Steering Angle 		     |
+<br />
+The shapes and the number of parameters: Keras
+
+| Layer (type)                   |Output Shape      |Param # |Connected to     |
+|:------------------------------:|:----------------:|:------:|:---------------:|
+|lambda_1 (Lambda)               |(None, 66, 200, 3)|0       |lambda_input_1   |
+|convolution2d_1 (Convolution2D) |(None, 31, 98, 24)|1824    |lambda_1         |
+|convolution2d_2 (Convolution2D) |(None, 14, 47, 36)|21636   |convolution2d_1  |
+|convolution2d_3 (Convolution2D) |(None, 5, 22, 48) |43248   |convolution2d_2  |
+|convolution2d_4 (Convolution2D) |(None, 3, 20, 64) |27712   |convolution2d_3  |
+|convolution2d_5 (Convolution2D) |(None, 1, 18, 64) |36928   |convolution2d_4  |
+|dropout_1 (Dropout)             |(None, 1, 18, 64) |0       |convolution2d_5  |
+|flatten_1 (Flatten)             |(None, 1152)      |0       |dropout_1        |
+|dense_1 (Dense)                 |(None, 100)       |115300  |flatten_1        |
+|dense_2 (Dense)                 |(None, 50)        |5050    |dense_1          |
+|dense_3 (Dense)                 |(None, 10)        |510     |dense_2          |
+|dense_4 (Dense)                 |(None, 1)         |11      |dense_3          |
+|                                |**Total params**  |252,219 |                 |
+<br />
 
 ---
