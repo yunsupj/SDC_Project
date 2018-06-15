@@ -99,22 +99,22 @@ Training model with unbalanced dataset makes more bias in particular classes/lab
 
 In the real world, there is various conditions exist such as shadow, cloud, rain or sunny. Therefore, I add some techniques, shadowing and [adjust_gamma](https://en.wikipedia.org/wiki/Gamma_correction), to provide a various condition of images based on brightness and contrasts. [model.py lines 51-124]<br>
 
-- **Flip:** Flipt the image left <-> right, and adjust the steering angle. <br>
+- **Flip:** Flipt the image left <-> right, and adjust the steering angle. 
     |Orignal Image | Flipped Image|
     |:------------:|:------------:|
     |![Orignal Image](./readme_images/original.png)|![Flipped Image](./readme_images/filp.png)|
     
-- **Translate:** Translate the image in random (X: [-30.0, 30.0], Y: [-5.0, 5.0]) coordinate, and adjust the steering angle.<br>
+- **Translate:** Translate the image in random (X: [-30.0, 30.0], Y: [-5.0, 5.0]) coordinate, and adjust the steering angle.
     |Orignal Image   | Translated Image|
     |:--------------:|:--------------:|
     |![Orignal Image](./readme_images/original.png)|![Translated Image](./readme_images/translation.png)|
     
-- **Adjust Gamma:** Adjust gamma value to change a brightness of image OpenCV provides Color map, but changing the only brightness with gamma needs to make own color map. The table is from Google search, mapping the pixel values [0, 255] to adjust gamma values.<br>
+- **Adjust Gamma:** Adjust gamma value to change a brightness of image OpenCV provides Color map, but changing the only brightness with gamma needs to make own color map. The table is from Google search, mapping the pixel values [0, 255] to adjust gamma values.
     |Orignal Image | Adjusted Image|
     |:------------:|:------------:|
     |![Orignal Image](./readme_images/original.png)|![Adjusted Image](./readme_images/gamma.png)|
 
-- **Make Shadow:** Make shadow on the images in randomly chosen locations with a line. The line is made by randomly chose two points, and choose above/blow area to make a shadow. By using mathematical function, (ym-y1)*(x2-x1) - (y2-y1)*(xm-x1) > 0.<br>
+- **Make Shadow:** Make shadow on the images in randomly chosen locations with a line. The line is made by randomly chose two points, and choose above/blow area to make a shadow. By using mathematical function, (ym-y1)*(x2-x1) - (y2-y1)*(xm-x1) > 0.
     |Orignal Image | Shadow Image |
     |:------------:|:------------:|
     |![Orignal Image](./readme_images/no_shadow.png)|![Shadow Image](./readme_images/shadow.png)|
@@ -136,7 +136,7 @@ The NVIDIA Behavioral Cloning Model designed and implemented a CNN deep learning
 The training dataset seems like the small size, but augmentation technique with Python generator can generate an unlimited number of images, so it can figure out a small number of the train set. [model.py lines 175-202]<br>
 <img src="./readme_images/nvidia_model.png" width="600" height="800" alt="Combined Image" /><br />
 
-The shapes and the number of parameters: Keras<br>
+The shapes and the number of parameters: Keras
 | Layer (type)                   |Output Shape      |Param # |Connected to     |
 |:------------------------------:|:----------------:|:------:|:---------------:|
 |lambda_1 (Lambda)               |(None, 66, 200, 3)|0       |lambda_input_1   |
@@ -154,7 +154,7 @@ The shapes and the number of parameters: Keras<br>
 |                                |**Total params**  |252,219 |                 |
 <br />
 
-Model consisted of the following layers:<br>
+Model consisted of the following layers:
 |Layer     |Functions      	|     Description	                     |
 |:--------:|:------------------:|:------------------------------------------:| 
 |Input     |          	     	| 66x120x3 YUV image   			     |
