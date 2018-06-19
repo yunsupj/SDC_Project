@@ -217,7 +217,7 @@ Train NVIDIA Model with collected image dataset from Unity Simulator.
 #### **Results**
 The trained model successfully drives around track one without leaving the road.
 <br />
-<a href="https://imgflip.com/gif/27ewij"><img src="https://i.imgflip.com/27ewij.gif" title="made at imgflip.com"/></a>
+<a href="https://imgflip.com/gif/2ch3f0"><img src="https://i.imgflip.com/2ch3f0.gif" title="made at imgflip.com"/></a>
 <br />
 <br />
 
