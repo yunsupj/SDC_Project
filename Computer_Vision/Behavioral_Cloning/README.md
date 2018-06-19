@@ -20,6 +20,7 @@ The aim of this project is cloning car driving behavior with CNN deep learning m
 * `model.py` : Containing the script to create and train the model include pre-processing for input data set.
 * `drive.py`: For driving the car in autonomous mode with the trained model.
 * `model.h5`: Containing a trained convolution neural network
+* `video.mp4`: Video recording of vehicle driving autonomously at least one lap around the track.
 * `Behavioral_Cloning_notebook.ipynb`: model.py ipython format include example image for pre-processing
 
 ---
@@ -192,17 +193,16 @@ In order to avoid overfitting, there is 50% dropout fuction applied between conv
 - **Loss Fuction:** Mean Squared Error (MSE), gap between y_hat and y
 - **Optimizer:** Adam optimizer
 - **Learning Rate:** 1.0e-4
-- **Epochs:** 8, it is a good enough
-- **Samples_per_epoch:** 20,000, unlimited number of images agumented by python generator
+- **Epochs:** 30, Around 10 is a good enough, but tried 30
+- **Samples_per_epoch:** 64,280, 10 x train set, unlimited number of images agumented by python generator
 - **Batch_size:** 40, there is memory issue
 <br />
 
 **Model Evaluation**<br>
 <br>
-<img src="./readme_images/model_evaluation.png" width="800" alt="Combined Image" /><br />
 First, I tried 1.0e-3(default) as learning rate, but it converged too fast and stop to reduce loss. Therefore, I changed into 1.0e-4 as learning rate.<br>
 I set the model check-point with Keras [Callback.ModelCheckpoint](https://keras.io/callbacks/) function, so I can save the best model based on validation loss every epoch.<br>
-From the check-point, the model reaches enough accuracy after 5-8 epochs, so I modified to 8 epochs in the final version of this project.<br>
+From the check-point, the model reaches enough accuracy after 10 epochs, but I tried to 30 epochs in the final version of this project (just in case).<br>
 
 ---
 
@@ -216,8 +216,7 @@ Train NVIDIA Model with collected image dataset from Unity Simulator.
 
 #### **Results**
 The trained model successfully drives around track one without leaving the road.
- - `Train Set Loss:` 99.1%
- - `Valid Set Loss:` 96.1%
+
 
 
 ---

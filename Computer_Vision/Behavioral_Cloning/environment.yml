@@ -1,0 +1,38 @@
+# Create environment:
+# $ conda env create --force
+name: self_driving
+channels:
+    - https://conda.anaconda.org/menpo
+    - conda-forge
+dependencies:
+    - python==3.5.2
+    - numpy
+    - matplotlib
+    - jupyter
+    - opencv3
+    - pillow
+    - scikit-learn
+    - scikit-image
+    - scipy
+    - h5py
+    - eventlet
+    - flask-socketio
+    - seaborn
+    - pandas
+    - imageio
+    - pip:
+        - moviepy
+        - tensorflow-gpu==1.1
+        - keras==1.2
+
+
+# Add cli to support Keras visualizations
+# $ brew install graphviz
+
+# Update environment (might break stuff. move fast!?)
+# $ conda update --all --yes
+# $ pip install --upgrade -r <( pip freeze )
+
+# Setup RISE (https://github.com/damianavila/RISE) slideshows:
+# $ jupyter nbextension install rise --py --sys-prefix
+# $ jupyter nbextension enable rise --py --sys-prefix
