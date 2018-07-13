@@ -3,7 +3,7 @@
 
 ---
 
-##### **Advanced Lane Finding Project**
+### **Advanced Lane Finding Project**
 
 The aim of this project is to develop a pipeline to detect lane lines on the road with the video stream from the forward facing camera. <br>
 * Language/Library: Python, [OpenCV](https://opencv.org/), Numpy, [MoviePy](http://zulko.github.io/moviepy/)
@@ -13,7 +13,7 @@ The aim of this project is to develop a pipeline to detect lane lines on the roa
   - Radius of Curvature of the Road
   - Center Offset, location of the vehicle from the center of the lane
 
-<img src="./readme_images/result_01.png" width="480" alt="Combined Image" /><br />
+<img src="./readme_images/result_01.png" width="800" alt="Combined Image" /><br />
 
 ---
 **The goals/steps of this project are the following:**
