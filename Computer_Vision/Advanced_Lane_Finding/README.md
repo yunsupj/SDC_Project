@@ -117,14 +117,15 @@ In this step, calculate the radius of curvature and position of the vehicle from
     def measure_curvature(img, x_pix):
         ym_per_pix = 30/720     # meters per pixel in y dimension
         xm_per_pix = 3.7/700    # meters per pixel in x dimension
-        
-        # Define maximum y-value corresponding to the bottom of the image, If no pixels were found return None
+
+        # Define maximum y-value corresponding to the bottom of the image, 
+        # If no pixels were found return None
         ploty = np.linspace(0, img.shape[0]-1, img.shape[0])
         y_eval = np.max(ploty)
     
         # Fit new polynomials to x, y in world space
         fit_cur = np.polyfit(ploty*ym_per_pix, x_pix*xm_per_pix, 2)
-        curverad = ((1 + (2*fit_cur[0]*y_eval*ym_per_pix + fit_cur[1])**2)**1.5) / np.absolute(2*fit_cur[0])
+        curverad = ((1 + (2*fit_cur[0]*y_eval*ym_per_pix+fit_cur[1])**2)**1.5) / np.absolute(2*fit_cur[0])
         return curverad    
     ```
 * Second, calculate the X mid-ponts from Left and Right lane lines, it is X-intercepts of two polynomials. <br> 
@@ -136,7 +137,7 @@ In this step, calculate the radius of curvature and position of the vehicle from
     # x, (1280/2 = 640)
     offset = (3.7/700) * (x/2 - lane_mid)
     ```
-    > If offset is `(+)`, the can be considered to the `left` of the center.
+    > If offset is `(+)`, the can be considered to the `left` of the center.<br>
       If offset is `(-)`, the can be considered to the `right` of the center.
 
 ---
@@ -153,7 +154,7 @@ In order to make unwarped images, it needs to reverse perspective transform. Usi
     ```
 
 ##### Final Output: <br>
-<img src="./readme_images/result_03.png" width="480" alt="Combined Image" /><br>
+<img src="./readme_images/result_03.png" width="840" alt="Combined Image" /><br>
 
 ---
 #### **Video Processing Results**
@@ -165,7 +166,5 @@ The [`VideoFileClip()`](https://zulko.github.io/moviepy/_modules/moviepy/video/i
 |-------------|-------------|
 |![Result_01](./readme_images/video_result_01.gif)|![Result_02](./readme_images/video_result_02.gif)|
 
-<a href="https://imgflip.com/gif/2dz0kp"><img src="https://i.imgflip.com/2dz0kp.gif" title="made at imgflip.com"/></a>
-<a href="https://imgflip.com/gif/2dz0ok"><img src="https://i.imgflip.com/2dz0ok.gif" title="made at imgflip.com"/></a>
 
 ---
