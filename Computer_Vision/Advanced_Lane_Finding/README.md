@@ -13,7 +13,7 @@ The aim of this project is to develop a pipeline to detect lane lines on the roa
   - Radius of Curvature of the Road
   - Center Offset, location of the vehicle from the center of the lane
 
-<img src="./readme_images/result_01.png" width="800" alt="Combined Image" /><br />
+<img src="./readme_images/result_01.png" width="840" alt="Combined Image" /><br />
 
 ---
 **The goals/steps of this project are the following:**
@@ -32,16 +32,16 @@ The aim of this project is to develop a pipeline to detect lane lines on the roa
 #### Step 1: Camera Calibration & Undistortion Image
 This is the step to make 2D plane images from 3D images in real world space.<br>
 In the real world, images are distorted, so making images into 2D place by calculating the [camera calibration](https://docs.opencv.org/2.4/doc/tutorials/calib3d/camera_calibration/camera_calibration.html) matrix and distortion coefficients.<br>
-- **Image -> Camera Calibration -> Undistortion Image**
+- **Image -> Camera Calibration -> Undistortion Image** <br>
 Using cessboard images to get camera calibration matrix (mtx) and distortion coefficients (dist). 
     - First, identify the locations of corners on the chessboard images with [`cv2.findChessboardCorners()`](https://docs.opencv.org/2.4/modules/calib3d/doc/camera_calibration_and_3d_reconstruction.html) and `cv2.drawChessboardCorners()`.
     - Second, computes camera calibration matrix (mtx) and distortion coefficients (dist) from the locations of the chessboard corners with [`cv2.calibrateCamera()`](https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_calib3d/py_calibration/py_calibration.html).
     - Finally, making undistort image from the mtx and dist, `cv2.undistort()`.<br>
 
 ##### Camera Calibration <br>
-<img src="./readme_images/camera_calib.png" width="480" alt="Combined Image" /><br />
+<img src="./readme_images/camera_calib.png" width="840" alt="Combined Image" /><br />
 ##### Undistortion Image <br>
-<img src="./readme_images/camera_calib_01.png" width="480" alt="Combined Image" /><br />
+<img src="./readme_images/camera_calib_01.png" width="840" alt="Combined Image" /><br />
 
 ---
 #### Step 2: Perspective Transform (Birds Eye View)
@@ -66,7 +66,7 @@ dp3 = [x, 0]                      # Right Top
 dp4 = [x, y]                      # Right Bottom
 ```
 ##### Perspective Transformed Image <br>
-<img src="./readme_images/bird_eye.png" width="480" alt="Combined Image" /><br />
+<img src="./readme_images/bird_eye.png" width="840" alt="Combined Image" /><br />
 
 ---
 #### Step 3: Apply Combining Color/Gradient Thresholds
@@ -74,22 +74,22 @@ In this step, convert warped images to binary threshold images, which can help t
  - **HLS Threshold:** Apply binary Threshold in S-Channel and L-Channel after converted into HLS color space. <br>
     - `S_Thresh:` It detects yellow and white lanes, Greater than 100.
     - `L_Thresh:` It helps to avoid shadowed and darked pixels, Greater than 120. <br>
-##### HLS Thresholds: <br>
-<img src="./readme_images/hls_thres.png" width="480" alt="Combined Image" /><br />
+	##### HLS Thresholds: <br>
+	<img src="./readme_images/hls_thres.png" width="840" alt="Combined Image" /><br />
 
  - **Sobel Gradient Thresholds:** Apply the gradient(sobel) Threshold on the horizontal gradient. <br>
     - `Sobel(Gradient):` Apply Horizontal Gradient, only for x_sobel value.<br>
-##### Gradient (Soble) Thresholds: <br>
-<img src="./readme_images/sobelx_thres.png" width="480" alt="Combined Image" /><br />
+	##### Gradient (Soble) Thresholds: <br>
+	<img src="./readme_images/sobelx_thres.png" width="840" alt="Combined Image" /><br />
 
  - **Direction Thresholds:** Apply the gradient direction Threshold to find the direction.<br>
     - `Direction Threshold:` Apply gradient direction threshold so that only edges closer to vertical are detected.<br>
-##### Direction Thresholds: <br>
-<img src="./readme_images/direction_thres.png" width="480" alt="Combined Image" /><br />
+	##### Direction Thresholds: <br>
+	<img src="./readme_images/direction_thres.png" width="840" alt="Combined Image" /><br />
 
 * And Combine All Thresholds, `S_Thresh`, `L_Thresh`, `Gradient_Thresh` and `Direction_Thresh`.<br>
-##### Combine Thresholds: <br>
-<img src="./readme_images/combine_thres.png" width="480" alt="Combined Image" /><br />
+	##### Combine Thresholds: <br>
+	<img src="./readme_images/combine_thres.png" width="840" alt="Combined Image" /><br />
 
 > In order to find the best thresh for each variable (Saturate, Lightness, Gradient(Sobel) Horizontal and Gradient(Sobel) Vertical), I play around with ipywidgets library.
 - `L-Thresh:` 120 
@@ -100,8 +100,8 @@ In this step, convert warped images to binary threshold images, which can help t
 #### Step 4: Fit Polynomial to the Lane Lines
 In this step, find the pixels which belong to the left and right lane lines. Then fit a 2nd order polynomial to each lane line (curve).
 * First, identify peak values, and  find all nonzero pixels around the location of the peak in order to determine the location of the lane lines.<br>
-##### Peak - Detect Lane Line: <br>
-<img src="./readme_images/peak.png" width="480" alt="Combined Image" /><br />
+	##### Peak - Detect Lane Line: <br>
+	<img src="./readme_images/peak.png" width="840" alt="Combined Image" /><br />
 
 * Second, fit 2nd order polynomial to each lane line with/without Sliding windows, [`np.polyfit()`](https://docs.scipy.org/doc/numpy/reference/generated/numpy.polyfit.html).<br>
 
