@@ -168,3 +168,6 @@ The [`VideoFileClip()`](https://zulko.github.io/moviepy/_modules/moviepy/video/i
 
 
 ---
+#### **Discussion**
+The main pipeline is perfectly work in various conditions of the road. The pipeline can accurately map out the true location of the lane lines, and it does not fail on curving roads, or in the presence of shadows and pavement color changes.
+However, for challenge video, there are some confusions during the lane line detection in particular conditions of the road such as the presence of dark shadows or a single erased lane line in between the left and right line. This is because pixel thresholds need to adjust in order to cover every condition of the roads. I think this is a great practice to advance computer vision techniques.
