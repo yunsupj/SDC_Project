@@ -143,7 +143,7 @@ In this step, calculate the radius of curvature and position of the vehicle from
 ---
 #### Step 6: Final Output with Reverse Perspective Transform
 This is the step to convert into unwarped images from warped images. The warped images contain polynomials to highlight the lane line on the roads.<br>
-- **Warped Image with Polynomials -> Unwarped Image**
+- **Warped Image with Polynomials -> Unwarped Image**<br>
 In order to make unwarped images, it needs to reverse perspective transform. Using the same Source points and Destination points in Step 2. However, this time uses Source points as Destination points and Destination points as Source points to get reverse Matrix.
     ```python
     # Perspective Transform for convert into Warped image, Birds Eye view
