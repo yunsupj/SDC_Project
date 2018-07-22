@@ -42,8 +42,7 @@ Download the labeled dataset for Car and Non-Car. Here are the links for [Car](h
 		
 		
 #### Step 2: Compute Gradient for Future Extraction by HOG Function
-In this step, features extraction from the images, Car and Non-Car images, by using HOG (Histogram of Oriented Gradients). <br>
-The [HOG](http://scikit-image.org/docs/dev/auto_examples/features_detection/plot_hog.html) function makes histogram of the direction of oriented gradients in X and Y. <br> 
+In this step, features extraction from the images, Car and Non-Car images, by using HOG (Histogram of Oriented Gradients). The [HOG](http://scikit-image.org/docs/dev/auto_examples/features_detection/plot_hog.html) function makes histogram of the direction of oriented gradients in X and Y. <br> 
 Since the result contains magnitude and direction of gradients, it is really useful to classify between the car and non-car images.
 
 - **Image -> HOG Image/HOG Feature**
@@ -65,7 +64,7 @@ Since the result contains magnitude and direction of gradients, it is really use
     cell_per_block = 2
     hog_channel = [0, 'All']
     ```
-    >There are 120 different possible set of params. This step is to find the
+    >There are 120 different possible set of params. <br>This step is to find the
     best set of params in the accuracy score of SVC based on in different set of
     params(`colorspace`, `orientations`, `pix_per_cell`, `hof_channel`). <br>
     One params, `cell_per_block`, is fixed value in `cell_per_block = 2`. And 
@@ -73,10 +72,11 @@ Since the result contains magnitude and direction of gradients, it is really use
     `hog_channel = 0`, which is only one channel applied.
     
 ##### Top 10 Set of Param based on Accuracy Score<br>
-<img src="./readme_images/top10.png" width="840" alt="Non-car Image" /><br />  
+<img src="./readme_images/top10.png" width="600" alt="Non-car Image" /><br />  
 
 
-** `hog_channel` applied as `'All'` when the extraction only HOG feature from the image, but `hog_channel` applied as `'0'` when the extraction combined HOG feature and Color feature.
+** `hog_channel` applied as `'All'` when the extraction only HOG feature from the image. <br>
+   `hog_channel` applied as `'0'` when the extraction combined HOG feature and Color feature.
 
 **Based on the result, I choose top 5 set of param and play around with combine feature extraction by HOG features and Color features. Then, I choose for final set of params as `colorspace = 'LUV'`, `orient = 8`, `pix_per_cell = 8`, `cell_per_block = 2`, `hog_channel = 0`.
 
@@ -119,7 +119,7 @@ score = svc.score(Xte, yte)
 ```
 
 ##### SVM Training Result <br>
-<img src="./readme_images/result_02.png" width="480" alt="Combined Image" /><br />
+<img src="./readme_images/result_02.png" width="600" alt="Combined Image" /><br />
 
 ---
 #### Step 4: Find Vehicles on the Image by Sliding Window Search
@@ -147,7 +147,7 @@ From the result Sliding Window Search, there are some overlapping windows (boxes
 In order to identify True Positive windows (Detected Vehicle), I used heatmap based on the number of overlapped windows (boxes), then apply threshold in the heatmap. The library, [`scipy.ndimage.measurements.label()`](https://docs.scipy.org/doc/scipy-0.16.0/reference/generated/scipy.ndimage.measurements.label.html), help to draw heatmap.<br>
 
 ##### Windows Detection + Heatmap + Threshold**  <br>
-<img src="./readme_images/result_03.png" width="840" alt="Combined Image" /><br />
+<img src="./readme_images/result_03.png" width="840" height="450" alt="Combined Image" /><br />
 
 
 ---

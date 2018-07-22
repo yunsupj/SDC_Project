@@ -4,3 +4,4 @@
   - Traffic Signals Classification
   - Behavioral Cloning
   - Advanced Lane Finding
+  - Vehicle Detection and Tracking
