@@ -147,7 +147,7 @@ From the result Sliding Window Search, there are some overlapping windows (boxes
 In order to identify True Positive windows (Detected Vehicle), I used heatmap based on the number of overlapped windows (boxes), then apply threshold in the heatmap. The library, [`scipy.ndimage.measurements.label()`](https://docs.scipy.org/doc/scipy-0.16.0/reference/generated/scipy.ndimage.measurements.label.html), help to draw heatmap.<br>
 
 ##### Windows Detection + Heatmap + Threshold**  <br>
-<img src="./readme_images/result_03.png" width="840" height="450" alt="Combined Image" /><br />
+<img src="./readme_images/result_03.png" width="840" height="350" alt="Combined Image" /><br />
 
 
 ---
@@ -162,4 +162,4 @@ The [`VideoFileClip()`](https://zulko.github.io/moviepy/_modules/moviepy/video/i
 
 ---
 #### **Discussion**
-The main pipeline is perfectly work in various conditions of the road. The pipeline can accurately map out the true location of the vehicles, and it does not fail on multiple cars detection or remove false positive detections. 
+The main pipeline is perfectly work in various conditions of views. The pipeline can accurately map out the true location of the vehicles, and it does not fail on multiple cars detection or remove false positive detections. However, since the vehicles in another side of the road usually smaller than the vehicles on the same side of the road, it is hard to detect after apply heatmap filter and thresholds. I think it may need smaller window size when search image/frame with sliding window to detect all the vehicles on both sides of the roads, which will require a lot more time to process.
