@@ -150,6 +150,16 @@ In order to identify True Positive windows (Detected Vehicle), I used heatmap ba
 <img src="./readme_images/result_03.png" width="840" height="350" alt="Combined Image" /><br />
 
 
+
+---
+#### Step 6: Combine with Advanced Lane Finding Project
+In this step, applying two pipelines to detect lane lines and vehicles on the road with the video stream from the forward facing camera. A single image/frame go through the lane line detection pipeline, then apply filtered set of windows(boxes - detection of vehicles) by using Vehicle Detection pipeline. [(`Advanced Lane Finding Project`)](https://github.com/yunsupj/SDC_Project/tree/master/Computer_Vision/Advanced_Lane_Finding)<br>
+
+##### The Final Result from Two Pipelines - Lane Line Detection & **  Vehicle Detection<br>
+<img src="./readme_images/result_03.png" width="600" alt="Combined Image" /><br />
+
+
+
 ---
 #### **Video Processing Results**
 Above practice is a pipeline for the image Vehicle Detection process. However, the main purpose of this project is expanding the pipeline for videos, which recorded from a mounted camera, like real-time Vehicle detection.
