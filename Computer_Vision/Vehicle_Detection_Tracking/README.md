@@ -147,7 +147,7 @@ From the result Sliding Window Search, there are some overlapping windows (boxes
 In order to identify True Positive windows (Detected Vehicle), I used heatmap based on the number of overlapped windows (boxes), then apply threshold in the heatmap. The library, [`scipy.ndimage.measurements.label()`](https://docs.scipy.org/doc/scipy-0.16.0/reference/generated/scipy.ndimage.measurements.label.html), help to draw heatmap.<br>
 
 ##### Windows Detection + Heatmap + Threshold**  <br>
-<img src="./readme_images/result_03.png" width="840" height="350" alt="Combined Image" /><br />
+<img src="./readme_images/result_03.png" width="900" height="350" alt="Combined Image" /><br />
 
 
 
